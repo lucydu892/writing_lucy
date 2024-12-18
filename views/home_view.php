@@ -79,7 +79,7 @@
     
     <h2>Beispiels Text</h2>
     <p id="output">    
-    <
+    </p>
         
     <script src="js/home.js">
     </script>
