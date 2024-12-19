@@ -3,7 +3,7 @@
     RewriteEngine On
 
     # Setzt das Basisverzeichnis auf das Projektverzeichnis
-    RewriteBase /localhost/writing_lucy
+    RewriteBase /localhost/writing_lucy/
 
     # Leitet alle anderen Anfragen an index.php um
     RewriteCond %{REQUEST_FILENAME} !-f

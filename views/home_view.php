@@ -1,8 +1,9 @@
 <?php
-    
+    require "views/header_view.php"
 ?>
-<h1>Writing Lucy</h1>
-<h2>Bearbeitung</h2>
+
+
+<h1>Bearbeitung</h1>
     <main>
         <div>
             <label for="bgColor">Hintergrundfarbe:</label>
