@@ -63,8 +63,8 @@
             <label for="imageWidth">Breite des Bildes:</label>
             <input type="number" id="imageWidth">
             <br>
-            <label for="imageHeigth">Höhe des Bildes:</label>
-            <input type="number" id="imageHeigth">
+            <label for="imageHeight">Höhe des Bildes:</label>
+            <input type="number" id="imageHeight">
         </div>
         <br>
         <div>

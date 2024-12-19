@@ -8,7 +8,7 @@ window.onload = function() {
     document.getElementById("resetBtn").addEventListener("click", resetPersonalization);
     document.getElementById("imageBtn").addEventListener("click", loadImage);
     document.getElementById("imageWidth").addEventListener("input", changeImageSize);
-    document.getElementById("imageHeigth").addEventListener("input", changeImageSize);
+    document.getElementById("imageHeight").addEventListener("input", changeImageSize);
 
 }
 function innerText(e) {
@@ -76,7 +76,7 @@ function loadImage() {
 function changeImageSize() {
     var width = document.getElementById("imageWidth").value;
     output.style.width = width + "px";
-    var height = document.getElementById("imageHeigth").value;
+    var height = document.getElementById("imageHeight").value;
     output.style.height = height + "px";
   
 
