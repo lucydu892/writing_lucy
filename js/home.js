@@ -8,93 +8,80 @@ window.onload = function() {
     document.getElementById("resetBtn").addEventListener("click", resetPersonalization);
     document.getElementById("imageBtn").addEventListener("click", loadImage);
     document.getElementById("imageWidth").addEventListener("input", changeImageSize);
-    document.getElementById("imageHeigth").addEventListener("input", changeImageSize);
-
-}
-function innerText(e) {
-    output.innerText = e.target.value;
-}
-
-function resetPersonalization() {
-    output.style.backgroundColor = "";
-    output.style.color = "white";
-    output.style.fontSize = "";
-    output.style.fontFamily = "";
-    output.style.textDecoration = "none";
-    container.innerHTML = " "; 
-}
-
-function changeBgColor() {
-    output.style.backgroundColor = document.getElementById("bgColor").value;
-}
-
-function changeFontColor() {
-    output.style.color = document.getElementById("fontColor").value;
-}
-
-function changeFontSize() {
-    alert('changefontsize');
-    var fontSize = document.getElementById("fontSize").value;
-    output.style.fontSize = fontSize + "px";
-}
-
-function changeFontFamily(e) {
-    var selectElem = e.target; 
-    var idx = selectElem.selectedIndex;
-    var optionElem = selectElem.options[idx];
-    if (optionElem.value > 0) {
-        output.style.fontFamily = optionElem.innerText;
+    document.getElementById("imageHeight").addEventListener("input", changeImageSize);
     }
-}
-
-function changeFontDeco(e) {
-    var selectElem = e.target; 
-    var idx = selectElem.selectedIndex;
-    var optionElem = selectElem.options[idx];
-    if (optionElem.value > 0) {
-        output.style.textDecoration = optionElem.innerText;
+    function innerText(e) {
+        output.innerText = e.target.value;
     }
-}
-
-function loadImage() {
-    var input = document.getElementById("imageLink");
-    var container = document.getElementById("output");
-    var imageUrl = input.value;
-
-
-    var img = document.createElement("img");
-    img.src = imageUrl;
-    img.alt = "Benutzerdefiniertes Bild";
-    img.style.width = "100px"; 
-    img.style.height = "50px"; 
-
-    img.onerror = () => {
-        alert("Das Bild konnte nicht geladen werden. Bitte URL überprüfen.");
-    };
-    container.appendChild(img);
-}
-function changeImageSize() {
-    var width = document.getElementById("imageWidth").value;
-    output.style.width = width + "px";
-    var height = document.getElementById("imageHeigth").value;
-    output.style.height = height + "px";
-  
-
-}
-
-   /*function importImageFromComputer () {
-    const input = document.querySelector('#imageLink');
-    const image = document.querySelector('.image');
-    input.addEventListener('change', e => {
-        const file = input.files[0];
-        if(file.type.match('image/*')) {
-            const fileReader = new FileReader();
-            fileReader.addEventListener('load', e => {
-                const img = document.createElement('img');
-                img.setAttribute('src', e.target.result);
-                image.appendChild(img);
-            });
-            fileReader.readAsDataURL(file);
+    function resetPersonalization() {
+        output.style.backgroundColor = "";
+        output.style.color = "white";
+        output.style.fontSize = "";
+        output.style.fontFamily = "";
+        output.style.textDecoration = "none";
+        container.innerHTML = "";
+    }
+    function changeBgColor() {
+        output.style.backgroundColor = document.getElementById("bgColor").value;
+    }
+    function changeFontColor() {
+        output.style.color = document.getElementById("fontColor").value;
+    }
+    function changeFontSize() {
+        var fontSize = document.getElementById("fontSize").value;
+        output.style.fontSize = fontSize + "px";
+    }
+    function changeFontFamily(e) {
+        var selectElem = e.target; 
+        var idx = selectElem.selectedIndex;
+        var optionElem = selectElem.options[idx];
+        if (optionElem.value > 0) {
+            output.style.fontFamily = optionElem.innerText;
         }
-    });
-   }*/
+    }
+    function changeFontDeco(e) {
+        var selectElem = e.target; 
+        var idx = selectElem.selectedIndex;
+        var optionElem = selectElem.options[idx];
+        if (optionElem.value > 0) {
+            output.style.textDecoration = optionElem.innerText;
+        }
+    }
+    function loadImage() {
+        var input = document.getElementById("imageLink");
+        var container = document.getElementById("output");
+        var imageUrl = input.value;
+        
+        var img = document.createElement("img");
+        img.src = imageUrl;
+        img.alt = "Benutzerdefiniertes Bild";
+        img.style.width = "100px"; 
+        img.style.height = "50px"; 
+        img.onerror = () => {
+            alert("Das Bild konnte nicht geladen werden. Bitte URL überprüfen.");
+        };
+        container.appendChild(img);
+    }
+    function changeImageSize() {
+        var width = document.getElementById("imageWidth").value;
+        output.style.width = width + "px";
+        var height = document.getElementById("imageHeight").value;
+        output.style.height = height + "px";
+      
+    }
+       /*function importImageFromComputer () {
+        const input = document.querySelector('#imageLink');
+        const image = document.querySelector('.image');
+        input.addEventListener('change', e => {
+            const file = input.files[0];
+            if(file.type.match('image/*')) {
+                const fileReader = new FileReader();
+                fileReader.addEventListener('load', e => {
+                    const img = document.createElement('img');
+                    img.setAttribute('src', e.target.result);
+                    image.appendChild(img);
+                });
+                fileReader.readAsDataURL(file);
+            }
+        });
+       }*/
