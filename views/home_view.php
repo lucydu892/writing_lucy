@@ -74,6 +74,7 @@
     
     <h2>Beispiels Text</h2>
     <div id="output">
+        <div id="text-output"></div>
         <div id="image-container"></div>
     </div> 
     

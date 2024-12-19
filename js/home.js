@@ -12,7 +12,8 @@ document.getElementById("imageHeight").addEventListener("input", changeImageSize
 
 }
 function innerText(e) {
-    output.innerText = e.target.value;
+    var textOutput = document.getElementById("text-output");
+    textOutput.innerText = e.target.value;
 }
 
 function resetPersonalization() {
