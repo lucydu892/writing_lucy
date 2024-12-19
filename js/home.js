@@ -23,7 +23,7 @@ function resetPersonalization() {
     output.style.textDecoration = "none";
 
     const container = document.getElementById("image-container");
-    container.innerHTML = ""; // Entfernt das Bild
+    container.innerHTML = ""; 
 }
 
 function changeBgColor() {
@@ -66,7 +66,7 @@ function loadImage() {
 
     var img = document.createElement("img");
     img.src = imageUrl;
-    img.alt = "Benutzerdefiniertes Bild";
+    img.alt = "Eingefügtes Bild";
     img.onerror = () => {
         alert("Das Bild konnte nicht geladen werden. Bitte URL überprüfen.");
     };
