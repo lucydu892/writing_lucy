@@ -1,14 +1,14 @@
 window.onload = function() {
-document.getElementById("bgColor").addEventListener("input", changeBgColor);
-document.getElementById("fontColor").addEventListener("input", changeFontColor);
-document.getElementById("fontSize").addEventListener("input", changeFontSize);
-document.getElementById("fontFamily").addEventListener("input", changeFontFamily);
-document.getElementById("fontDeco").addEventListener("input", changeFontDeco);
-document.getElementById("text").addEventListener("keyup", innerText);
-document.getElementById("resetBtn").addEventListener("click", resetPersonalization);
-document.getElementById("imageBtn").addEventListener("click", loadImage);
-document.getElementById("imageWidth").addEventListener("input", changeImageWidth);
-document.getElementById("imageHeigth").addEventListener("input", changeImageHeight);
+    document.getElementById("bgColor").addEventListener("input", changeBgColor);
+    document.getElementById("fontColor").addEventListener("input", changeFontColor);
+    document.getElementById("fontSize").addEventListener("input", changeFontSize);
+    document.getElementById("fontFamily").addEventListener("input", changeFontFamily);
+    document.getElementById("fontDeco").addEventListener("input", changeFontDeco);
+    document.getElementById("text").addEventListener("keyup", innerText);
+    document.getElementById("resetBtn").addEventListener("click", resetPersonalization);
+    document.getElementById("imageBtn").addEventListener("click", loadImage);
+    document.getElementById("imageWidth").addEventListener("input", changeImageSize);
+    document.getElementById("imageHeigth").addEventListener("input", changeImageSize);
 
 }
 function innerText(e) {
@@ -16,14 +16,12 @@ function innerText(e) {
 }
 
 function resetPersonalization() {
-    output.style.backgroundColor = "white";
-    output.style.color = "black";
+    output.style.backgroundColor = "";
+    output.style.color = "white";
     output.style.fontSize = "";
     output.style.fontFamily = "";
     output.style.textDecoration = "none";
-
-    const container = document.getElementById("image-container");
-    container.innerHTML = ""; 
+    container.innerHTML = " "; 
 }
 
 function changeBgColor() {
@@ -62,27 +60,27 @@ function loadImage() {
     var container = document.getElementById("output");
     var imageUrl = input.value;
 
-    container.innerHTML = "";
 
     var img = document.createElement("img");
     img.src = imageUrl;
-    img.alt = "Eingefügtes Bild";
+    img.alt = "Benutzerdefiniertes Bild";
+    img.style.width = "100px"; 
+    img.style.height = "50px"; 
+
     img.onerror = () => {
         alert("Das Bild konnte nicht geladen werden. Bitte URL überprüfen.");
     };
     container.appendChild(img);
 }
-function changeImageWidth() {
-    var imageWidth = document.getElementById("imageWidth");
-    output.style.width = imageWidth + "px";
-    alert(output.style.width = imageWidth + "px");
+function changeImageSize() {
+    var width = document.getElementById("imageWidth").value;
+    output.style.width = width + "px";
+    var height = document.getElementById("imageHeigth").value;
+    output.style.height = height + "px";
+  
 
 }
-function changeImageHeight() {
-    var imageHeight = document.getElementById("imageHeight");
-    output.style.height = imageHeight + "px";
-    alert(output.style.height = imageHeight + "px");
-}
+
    /*function importImageFromComputer () {
     const input = document.querySelector('#imageLink');
     const image = document.querySelector('.image');
