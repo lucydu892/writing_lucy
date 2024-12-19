@@ -1,14 +1,14 @@
 window.onload = function() {
-    document.getElementById("bgColor").addEventListener("input", changeBgColor);
-    document.getElementById("fontColor").addEventListener("input", changeFontColor);
-    document.getElementById("fontSize").addEventListener("input", changeFontSize);
-    document.getElementById("fontFamily").addEventListener("input", changeFontFamily);
-    document.getElementById("fontDeco").addEventListener("input", changeFontDeco);
-    document.getElementById("text").addEventListener("keyup", innerText);
-    document.getElementById("resetBtn").addEventListener("click", resetPersonalization);
-    document.getElementById("imageBtn").addEventListener("click", loadImage);
-    document.getElementById("imageWidth").addEventListener("input", changeImageSize);
-    document.getElementById("imageHeight").addEventListener("input", changeImageSize);
+document.getElementById("bgColor").addEventListener("input", changeBgColor);
+document.getElementById("fontColor").addEventListener("input", changeFontColor);
+document.getElementById("fontSize").addEventListener("input", changeFontSize);
+document.getElementById("fontFamily").addEventListener("input", changeFontFamily);
+document.getElementById("fontDeco").addEventListener("input", changeFontDeco);
+document.getElementById("text").addEventListener("keyup", innerText);
+document.getElementById("resetBtn").addEventListener("click", resetPersonalization);
+document.getElementById("imageBtn").addEventListener("click", loadImage);
+document.getElementById("imageWidth").addEventListener("input", changeImageSize);
+document.getElementById("imageHeight").addEventListener("input", changeImageSize);
 
 }
 function innerText(e) {
@@ -55,14 +55,13 @@ function changeFontDeco(e) {
         output.style.textDecoration = optionElem.innerText;
     }
 }
-
+let img;
 function loadImage() {
     var input = document.getElementById("imageLink");
-    var container = document.getElementById("output");
     var imageUrl = input.value;
-
-
-    var img = document.createElement("img");
+    var container = document.getElementById("image-container");
+    
+    img = document.createElement("img");
     img.src = imageUrl;
     img.alt = "Benutzerdefiniertes Bild";
     img.style.width = "100px"; 
@@ -75,10 +74,9 @@ function loadImage() {
 }
 function changeImageSize() {
     var width = document.getElementById("imageWidth").value;
-    output.style.width = width + "px";
+    img.style.width = width + "px";
     var height = document.getElementById("imageHeight").value;
-    output.style.height = height + "px";
-  
+    img.style.height = height + "px";
 
 }
 

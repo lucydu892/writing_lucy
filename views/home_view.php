@@ -56,26 +56,27 @@
             <input type="text" name="imageLink" id="imageLink">
             <br>
             <button id="imageBtn">Bild anzeigen</button>
-            <div id="image-container"></div>
         </div>
-        
-        <div>
-            <label for="imageWidth">Breite des Bildes:</label>
-            <input type="number" id="imageWidth">
-            <br>
-            <label for="imageHeight">Höhe des Bildes:</label>
-            <input type="number" id="imageHeight">
+        <div class="content">
+            <div>
+                <label for="imageWidth">Breite des Bildes:</label>
+                <input type="number" id="imageWidth">
+                <br>
+                <label for="imageHeight">Höhe des Bildes:</label>
+                <input type="number" id="imageHeight">
+            </div>
         </div>
-        <br>
         <div>
             <button id="resetBtn">Reset</button>
         </div>
-
+        
     </main>
     
     <h2>Beispiels Text</h2>
-    <p id="output">    
-    </p>
+    <div id="output">
+        <div id="image-container"></div>
+    </div> 
+    
         
     <script src="js/home.js">
     </script>
