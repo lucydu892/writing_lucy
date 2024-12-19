@@ -9,6 +9,7 @@ document.getElementById("resetBtn").addEventListener("click", resetPersonalizati
 document.getElementById("imageBtn").addEventListener("click", loadImage);
 document.getElementById("imageWidth").addEventListener("input", changeImageSize);
 document.getElementById("imageHeight").addEventListener("input", changeImageSize);
+document.getElementById("joke-container").addEventListener("load", importJoke);
 
 }
 function innerText(e) {
@@ -61,7 +62,7 @@ function loadImage() {
     var input = document.getElementById("imageLink");
     var imageUrl = input.value;
     var container = document.getElementById("image-container");
-    
+
     img = document.createElement("img");
     img.src = imageUrl;
     img.alt = "Benutzerdefiniertes Bild";
@@ -80,6 +81,13 @@ function changeImageSize() {
     img.style.height = height + "px";
 
 }
+async function importJoke() {
+    var response = await fetch("https://witzapi.de/api/joke/", { "method": "GET" });
+    var jsonData = await response.json();
+    document.getElementById("joke-container").innerText = jsonData[0] .text;   
+}
+importJoke();
+setInterval(importJoke,60000)
 
    /*function importImageFromComputer () {
     const input = document.querySelector('#imageLink');

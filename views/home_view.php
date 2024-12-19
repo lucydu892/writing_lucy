@@ -72,8 +72,8 @@
         
     </main>
     
-    <h2>Beispiels Text</h2>
     <div id="output">
+        <div id="joke-container">Witz</div>
         <div id="text-output"></div>
         <div id="image-container"></div>
     </div> 
