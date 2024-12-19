@@ -58,13 +58,11 @@
             <button id="imageBtn">Bild anzeigen</button>
             <div id="image-container"></div>
         </div>
-        <br>
+        
         <div>
             <label for="imageWidth">Breite des Bildes:</label>
             <input type="number" id="imageWidth">
-        </div>
-        <br>
-        <div>
+            <br>
             <label for="imageHeigth">Höhe des Bildes:</label>
             <input type="number" id="imageHeigth">
         </div>
@@ -72,14 +70,12 @@
         <div>
             <button id="resetBtn">Reset</button>
         </div>
-        <div class="content">
 
-        </div>
     </main>
     
     <h2>Beispiels Text</h2>
     <p id="output">    
-    <
+    </p>
         
     <script src="js/home.js">
     </script>
