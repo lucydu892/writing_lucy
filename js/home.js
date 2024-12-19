@@ -39,6 +39,7 @@ window.onload = function() {
             output.style.fontFamily = optionElem.innerText;
         }
     }
+    let img;
     function changeFontDeco(e) {
         var selectElem = e.target; 
         var idx = selectElem.selectedIndex;
@@ -49,24 +50,25 @@ window.onload = function() {
     }
     function loadImage() {
         var input = document.getElementById("imageLink");
-        var container = document.getElementById("output");
         var imageUrl = input.value;
+        var container = document.getElementById("image-container");
         
-        var img = document.createElement("img");
+        img = document.createElement("img");
         img.src = imageUrl;
         img.alt = "Benutzerdefiniertes Bild";
         img.style.width = "100px"; 
         img.style.height = "50px"; 
         img.onerror = () => {
             alert("Das Bild konnte nicht geladen werden. Bitte URL überprüfen.");
-        };
+        }
+
         container.appendChild(img);
     }
     function changeImageSize() {
         var width = document.getElementById("imageWidth").value;
-        output.style.width = width + "px";
+        img.style.width = width + "px";
         var height = document.getElementById("imageHeight").value;
-        output.style.height = height + "px";
+        img.style.height = height + "px";
       
     }
        /*function importImageFromComputer () {

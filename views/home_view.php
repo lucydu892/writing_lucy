@@ -56,7 +56,6 @@
             <input type="text" name="imageLink" id="imageLink">
             <br>
             <button id="imageBtn">Bild anzeigen</button>
-            <div id="image-container"></div>
         </div>
         <div>
             <label for="imageWidth">Breite des Bildes:</label>
@@ -73,9 +72,9 @@
     
    
     <h2>Beispiels Text</h2>
-    <p id="output">    
-    
-    </p>
+    <div id="output">    
+        <div id="image-container"></div>
+    </div>
 
     <script src="js/home.js">
     </script>
