@@ -52,19 +52,19 @@
         </div>
         <br>
         <div>
-            <label for="imageLink">Image-URl:</label>
-            <input type="text" name="imageLink" id="imageLink">
+            <label for="c">Image-URl:</label>
+            <input type="text" name="c" id="c">
             <br>
             <button id="imageBtn">Bild anzeigen</button>
-            <div id="image-container"></div>
+            <!--<div id="image-container"></div>-->
         </div>
         
         <div>
             <label for="imageWidth">Breite des Bildes:</label>
             <input type="number" id="imageWidth">
             <br>
-            <label for="imageHeigth">Höhe des Bildes:</label>
-            <input type="number" id="imageHeigth">
+            <label for="imageHeight">Höhe des Bildes:</label>
+            <input type="number" id="imageHeight">
         </div>
         <br>
         <div>
