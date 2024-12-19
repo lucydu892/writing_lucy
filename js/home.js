@@ -8,7 +8,7 @@ window.onload = function() {
     document.getElementById("resetBtn").addEventListener("click", resetPersonalization);
     document.getElementById("imageBtn").addEventListener("click", loadImage);
     document.getElementById("imageWidth").addEventListener("input", changeImageSize);
-    document.getElementById("imageHeight").addEventListener("input", changeImageSize);
+    document.getElementById("imageHeigth").addEventListener("input", changeImageSize);
 
 }
 function innerText(e) {
@@ -57,7 +57,7 @@ function changeFontDeco(e) {
 }
 
 function loadImage() {
-    var input = document.getElementById("c");
+    var input = document.getElementById("imageLink");
     var container = document.getElementById("output");
     var imageUrl = input.value;
 
@@ -76,7 +76,7 @@ function loadImage() {
 function changeImageSize() {
     var width = document.getElementById("imageWidth").value;
     output.style.width = width + "px";
-    var height = document.getElementById("imageHeight").value;
+    var height = document.getElementById("imageHeigth").value;
     output.style.height = height + "px";
   
 
