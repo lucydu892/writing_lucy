@@ -1,0 +1,12 @@
+#navbar{
+    text-size-adjust: 5px;
+    background-color:rgb(21, 255, 0) ;
+  }
+  h1 {
+    font-size: 20px;
+    text-decoration: underline;
+    color: white;
+    display: grid;
+    grid-row: 2;
+    grid-column: 1;
+  }
