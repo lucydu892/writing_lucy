@@ -16,12 +16,12 @@ nav  {
   text-size-adjust: 5px;
   background-color:rgb(12, 12, 58) ;
 }
-h2 {
+h1 {
   font-size: 20px;
   text-decoration: underline;
   display: grid;
-  grid-row: 2 ;
-  grid-column: 1 / span;
+  grid-row: 3;
+  grid-column: 3;
 }
 div > .editor {
   display: grid;
@@ -32,8 +32,7 @@ main {
   grid-column: 1;
 }
 
-#output > div {
+#output {
   grid-row: 3;
-  grid-column: 2/3;
-
+  grid-column: 2;
 }

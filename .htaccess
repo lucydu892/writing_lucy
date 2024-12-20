@@ -1,12 +1,6 @@
-<IfModule mod_rewrite.c>
-    # Aktiviert das Umschreiben von URLs
-    RewriteEngine On
+RewriteEngine On
 
-    # Setzt das Basisverzeichnis auf das Projektverzeichnis
-    RewriteBase /localhost/writing_lucy/
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
 
-    # Leitet alle anderen Anfragen an index.php um
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ /localhost/writing_lucy/index.php [L]
-</IfModule>
+RewriteRule ^(.*)$ index.php [L,QSA]
