@@ -15,6 +15,7 @@
     </head>
     <body>
         <?php
+            session_start();
             require "routes.php";
         ?>
     </body>

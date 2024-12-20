@@ -6,6 +6,7 @@ $routes = [
     'home'          => 'views/home_view.php', 
     'writing_lucy'  => 'views/home_view.php',
     'register'      => 'views/register_view.php',
+    'login'         => 'views/login_view.php'
 ];
 
 if (array_key_exists($page, $routes)) {
