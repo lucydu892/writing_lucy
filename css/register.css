@@ -1,12 +1,24 @@
 body {
     grid-template-columns: 20% 80%;
-    grid-template-rows: 60px 20px auto;
+    grid-template-rows: 60px 30px  auto auto;
 }
 form {
-    grid-row: 3;
+    grid-row: 4;
     grid-column: 2;
     padding-right: 50px;
 }
 form a {
     text-decoration: none;
+}
+ul {
+    grid-row: 3;
+    grid-column: 2;
+}
+button {
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(33, 33, 231);
+    color: white;
 }

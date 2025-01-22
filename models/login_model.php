@@ -15,13 +15,13 @@
             array_push($errors, "Bitte geben sie ihr Passwort ein.");
         }
 
-        $prep = $dbCon->prepare("select * from login where userName = :userName");
+        $prep = $dbCon->prepare("select * from user where userName = :userName");
         $prep-> execute([':userName' => $userName]);
         $user = $prep -> fetch();
         
         if ($user !== false && password_verify($password, $user['password'])) {
             $_SESSION['userId'] = $user['id'];
-            $_SESSION['username'] = $user['username'];
+            $_SESSION['userName'] = $user['userName'];
             header("refresh:2;url=home");
             die ('Login erfolgreich.');
             
