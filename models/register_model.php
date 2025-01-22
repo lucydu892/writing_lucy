@@ -7,6 +7,9 @@
     $email =$_POST['email'] ?? '' ;
     $userName = $_POST['userName'] ?? '';
     $password = $_POST['password'] ?? '';
+    $gender = $_POST['gender'] ?? '';
+    $checkbox = $_POST['checkbox'] ?? '';
+
     $dbCon = connectToDatabase();   
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -41,7 +44,7 @@
             array_push($errors, "Dieser Benutzername existiert bereits.");
         }
         if (count($errors) > 0) {
-            echo "error";
+            echo "<p>$error</p>";
         } else {
             $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
