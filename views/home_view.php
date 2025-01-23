@@ -9,8 +9,8 @@
     <main>
     <audio autoplay> 
     <source src="music\background_music_lofi.mp3" type="audio/mpeg">
-    <p>If you are reading this, it is because your browser does not support the audio element.</p>
-</audio>
+        <p>If you are reading this, it is because your browser does not support the audio element.</p>
+    </audio>
         <form method="post">
             <div>
                 <label for="bgColor">Hintergrundfarbe:</label>

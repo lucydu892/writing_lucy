@@ -15,6 +15,7 @@ button {
 div > .editor {
   display: grid;
   grid-row: 3;
+  
 }
 main {
   grid-row: 3;

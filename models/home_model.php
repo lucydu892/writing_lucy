@@ -18,13 +18,17 @@
             $time = date("Y-m-d H:i:s");
             $userId = ($_SESSION['userName']);
 
-            $styles = 'bColor: ' . $bgColor . 'fColor: ' . $fontColor . 'size: ' . $fontSize . 'family: ' . $fontFamily . 'deco: ' . $fontDeco . 'width: ' . $imageWidth . 'height: ' . $imageHeight;
-
-            $stmt = $dbCon->prepare('INSERT INTO document (userId, text, image ,styles, time) VALUES (:userId, :text, :image, :styles, :time)');
+            $stmt = $dbCon->prepare('INSERT INTO document (userId, text, image ,bgColor, fontColor, fontSize, fontFamily, fontDeco, imageWidth, imageHeight, time) VALUES (:userId, :text, :image, :bgColor, :fontColor, :fontSize, :fontFamily, :fontDeco, :imageWidth, :imageHeight, :time)');
             $stmt->bindParam(':userId', $userId);
             $stmt->bindParam(':text', $inputText);
             $stmt->bindParam(':image', $image);
-            $stmt->bindParam(':styles', $styles);
+            $stmt->bindParam(':bgColor', $bgColor);
+            $stmt->bindParam(':fontColor', $fontColor);
+            $stmt->bindParam(':fontSize', $fontSize);
+            $stmt->bindParam(':fontFamily', $fontFamily);
+            $stmt->bindParam(':fontDeco', $fontDeco);
+            $stmt->bindParam(':imageWidth', $imageWidth);
+            $stmt->bindParam(':imageHeight', $imageHeight);
             $stmt->bindParam(':time', $time);
             $stmt->execute();
         } 
