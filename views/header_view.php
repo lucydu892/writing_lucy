@@ -7,10 +7,15 @@
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
+                    <div class="navbar-nav">
+                    <?php if($_SESSION['userId']) { ?>
+                        <a class="nav-link active" aria-current="page" href="post">Meine Beiträge</a>
+                        <a class="nav-link active" aria-current="page" href="logout">Abmelden</a>
+                    <?php } else {?>
                     <a class="nav-link active" aria-current="page" href="register">Registrieren</a>
-
-                </div>
+                    <a class="nav-link active" aria-current="page" href="login">Anmelden</a>
+                    <?php }?>
+                    </div>
                 </div>
             </div>
         </nav>
