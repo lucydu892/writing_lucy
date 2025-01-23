@@ -10,7 +10,6 @@ document.getElementById("imageBtn").addEventListener("click", loadImage);
 document.getElementById("imageWidth").addEventListener("input", changeImageSize);
 document.getElementById("imageHeight").addEventListener("input", changeImageSize);
 document.getElementById("joke-container").addEventListener("load", importJoke);
-document.getElementById("saveBtn").addEventListener("click", saveData);
 
 }
 function innerText(e) {
@@ -37,7 +36,6 @@ function changeFontColor() {
 }
 
 function changeFontSize() {
-    alert('changefontsize');
     var fontSize = document.getElementById("fontSize").value;
     output.style.fontSize = fontSize + "px";
 }
@@ -91,14 +89,6 @@ async function importJoke() {
 importJoke();
 setInterval(importJoke,60000)
 
-function saveData() {
-    var saveHtml = document.getElementById("text").value;
-    window.location.href = "home_view.php?saveHtml=" + saveHtml;
-    let saveCss = document.getElementsByClassName("stylesText").value;
-    window.location.href = "home_model.php?saveCss=" + saveCss;
-
-    alert("Html und CSS gespeichert")
-}
    /*function importImageFromComputer () {
     const input = document.querySelector('#imageLink');
     const image = document.querySelector('.image');
