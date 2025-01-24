@@ -61,7 +61,11 @@ let img;
 function loadImage() {
     var input = document.getElementById("imageLink");
     var imageUrl = input.value;
+    console.log(imageUrl);
+
     var container = document.getElementById("image-container");
+
+    console.log(container.id);
 
     img = document.createElement("img");
     img.src = imageUrl;
