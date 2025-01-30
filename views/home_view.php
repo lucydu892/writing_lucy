@@ -64,7 +64,7 @@
                 <label for="imageLink">Image-URl:</label>
                 <input type="text" name="imageLink" id="imageLink">
                 <br>
-                <button id="imageBtn">Bild anzeigen</button>
+                <button id="imageBtn" type="button" onclick="loadImage()">Bild anzeigen</button>
             </div>
             <div class="content">
                 <div>
@@ -76,7 +76,7 @@
                 </div>
             </div>
             <div>
-                <button id="resetBtn">Reset</button>
+                <button id="resetBtn" type="button">Reset</button>
             </div>
             <br>
             <div class="saveData">

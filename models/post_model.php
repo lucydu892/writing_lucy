@@ -4,9 +4,9 @@ require 'core/database.php';
 $dbCon = connectToDatabase();
 if(isset($_SESSION['userId'])){
     
-    $userId = $_SESSION['userId'];
-    $prepPost = $dbCon-> prepare("select * from document where id= :userId order by time asc");
-    $prepPost->execute([':userId' => $_SESSION['userId']]);
+    $userId = $_SESSION['userName'];
+    $prepPost = $dbCon-> prepare("select * from document where userId= :userName order by time asc");
+    $prepPost->execute([':userName' => $_SESSION['userName']]);
     $post = $prepPost->fetchAll();
 } else {
     echo "You are not loged in.";

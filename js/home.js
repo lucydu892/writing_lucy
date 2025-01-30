@@ -6,7 +6,6 @@ document.getElementById("fontFamily").addEventListener("input", changeFontFamily
 document.getElementById("fontDeco").addEventListener("input", changeFontDeco);
 document.getElementById("text").addEventListener("keyup", innerText);
 document.getElementById("resetBtn").addEventListener("click", resetPersonalization);
-document.getElementById("imageBtn").addEventListener("keyup", loadImage);
 document.getElementById("imageWidth").addEventListener("input", changeImageSize);
 document.getElementById("imageHeight").addEventListener("input", changeImageSize);
 document.getElementById("joke-container").addEventListener("load", importJoke);
@@ -59,13 +58,11 @@ function changeFontDeco(e) {
 }
 let img;
 function loadImage() {
-    var input = document.getElementById("imageLink");
+    var input = document.getElementById("imageLink").value;
     var imageUrl = input.value;
-    console.log(imageUrl);
-
     var container = document.getElementById("image-container");
-
-    console.log(container.id);
+    
+    container.innerHTML = "";
 
     img = document.createElement("img");
     img.src = imageUrl;
@@ -93,7 +90,7 @@ async function importJoke() {
 importJoke();
 setInterval(importJoke,60000)
 
-function importImageFromComputer () {
+/*function importImageFromComputer () {
     const input = document.querySelector('#imageLink');
     const image = document.querySelector('.image');
     input.addEventListener('change', e => {
@@ -108,4 +105,4 @@ function importImageFromComputer () {
             fileReader.readAsDataURL(file);
         }
     });
-   }
+   }*/
