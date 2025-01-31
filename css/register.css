@@ -1,19 +1,12 @@
-body {
-    grid-template-columns: 20% 80%;
-    grid-template-rows: 60px 30px  auto auto;
-}
+
 form {
-    grid-row: 4;
-    grid-column: 2;
+
     padding-right: 50px;
 }
 form a {
     text-decoration: none;
 }
-ul {
-    grid-row: 3;
-    grid-column: 2;
-}
+
 button {
     width: 100px;
     height: 30px;

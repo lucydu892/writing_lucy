@@ -9,6 +9,7 @@ document.getElementById("resetBtn").addEventListener("click", resetPersonalizati
 document.getElementById("imageWidth").addEventListener("input", changeImageSize);
 document.getElementById("imageHeight").addEventListener("input", changeImageSize);
 document.getElementById("joke-container").addEventListener("load", importJoke);
+document.getElementById("imageBtn").addEventListener("click", importImageFromComputer)
 
 }
 function innerText(e) {
@@ -90,7 +91,7 @@ async function importJoke() {
 importJoke();
 setInterval(importJoke,60000)
 
-/*function importImageFromComputer () {
+function importImageFromComputer () {
     const input = document.querySelector('#imageLink');
     const image = document.querySelector('.image');
     input.addEventListener('change', e => {
@@ -105,4 +106,4 @@ setInterval(importJoke,60000)
             fileReader.readAsDataURL(file);
         }
     });
-   }*/
+   }

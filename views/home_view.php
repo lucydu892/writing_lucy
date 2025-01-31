@@ -30,7 +30,7 @@
             <div>
                 <label for="fontFamily">Schriftart:</label>
                 <select  name="fontFamily" id="fontFamily">
-                    <option value="1">Bitte wählen</option>
+                    <option value="none">Bitte wählen</option>
                     <option value="Arial, sans-serif">Arial, sans-serif</option>
                     <option value="Palatino Linotype">Palatino Linotype</option>
                     <option value="Helvetica">Helvetica</option>
@@ -64,7 +64,7 @@
                 <label for="imageLink">Image-URl:</label>
                 <input type="text" name="imageLink" id="imageLink">
                 <br>
-                <button id="imageBtn" type="button" onclick="loadImage()">Bild anzeigen</button>
+                <button id="imageBtn" type="button">Bild anzeigen</button>
             </div>
             <div class="content">
                 <div>
@@ -83,16 +83,16 @@
                 <button id="saveBtn" type="submit">Speichern</button>
             </div>
             <br>
-            
+            <div id="output">
+                <div id="joke-container" name="joke">Witz</div>
+                <div id="text-output"></div>
+                <div id="image-container"></div>
+            </div> 
         </form>
         
     </main>
     
-    <div id="output">
-        <div id="joke-container">Witz</div>
-        <div id="text-output"></div>
-        <div id="image-container"></div>
-    </div> 
+    
     
         
     <script src="js/home.js">

@@ -1,8 +1,6 @@
 body {
-  display: grid;
-  grid-template-columns: 40% 60%;
-  grid-template-rows: 60px 50px auto 50px;
   background-color: rgb(12, 12, 58);
+  display: flex;
   color: white;
   margin-left: 10px;
 }
@@ -11,21 +9,16 @@ button {
   width: 60px;
 }
 
-
-div > .editor {
-  display: grid;
-  grid-row: 3;
-  
-}
 main {
-  grid-row: 3;
-  grid-column: 1;
+  flex-direction: columm;
+  justify-content: flex-end;
 }
 
-#output {
-  grid-row: 3;
-  grid-column: 2;
-}
+
 .saveData > button{
   width: 300px;
+}
+#output {
+  margin: 70%;
+  padding: 50%;
 }

@@ -5,7 +5,7 @@ $dbCon = connectToDatabase();
 if(isset($_SESSION['userId'])){
     
     $userId = $_SESSION['userName'];
-    $prepPost = $dbCon-> prepare("select * from document where userId= :userName order by time asc");
+    $prepPost = $dbCon-> prepare("select * from document where userId= :userName order by time desc");
     $prepPost->execute([':userName' => $_SESSION['userName']]);
     $post = $prepPost->fetchAll();
 } else {
