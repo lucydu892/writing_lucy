@@ -1,8 +1,9 @@
-#navbar{
-    text-size-adjust: 5px;
-  }
+body {
+  display: flex;
+}
   header {
     position: fixed;
+    justify-self: start;
   }
   h1 {
     margin-top: 60px;

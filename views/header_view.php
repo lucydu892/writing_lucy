@@ -1,23 +1,21 @@
 <header>
-    <div id="navbar">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="home">Writing Lucy</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="home">Writing Lucy</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                    <?php if($_SESSION['userId']) { ?>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <?php if ($_SESSION['userId']) { ?>
                         <a class="nav-link active" aria-current="page" href="post">Meine Beiträge</a>
                         <a class="nav-link active" aria-current="page" href="logout">Abmelden</a>
-                    <?php } else {?>
-                    <a class="nav-link active" aria-current="page" href="register">Registrieren</a>
-                    <a class="nav-link active" aria-current="page" href="login">Anmelden</a>
-                    <?php }?>
-                    </div>
+                    <?php } else { ?>
+                        <a class="nav-link active" aria-current="page" href="register">Registrieren</a>
+                        <a class="nav-link active" aria-current="page" href="login">Anmelden</a>
+                    <?php } ?>
                 </div>
             </div>
-        </nav>
-    </div>
+        </div>
+    </nav>
 </header>

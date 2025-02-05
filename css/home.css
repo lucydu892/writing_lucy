@@ -2,7 +2,6 @@ body {
   background-color: rgb(12, 12, 58);
   display: flex;
   color: white;
-  margin-left: 10px;
 }
 button {
   height: 20px;
@@ -10,15 +9,17 @@ button {
 }
 
 main {
-  flex-direction: columm;
-  justify-content: flex-end;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-self: flex-start;
 }
-
+.editor {
+  margin: 0px;
+}
 
 .saveData > button{
   width: 300px;
 }
 #output {
-  margin: 70%;
-  padding: 50%;
+
 }

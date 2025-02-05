@@ -1,17 +1,19 @@
 <?php
-    require "views/header_view.php";
-    require "models/home_model.php";
+require "views/header_view.php";
+require "models/home_model.php";
 ?>
 
 
-<h1>Bearbeitung</h1>
 
-    <main>
-    <audio autoplay> 
-    <source src="music\background_music_lofi.mp3" type="audio/mpeg">
+
+<main>
+<h1>Bearbeitung</h1>
+    <audio autoplay>
+        <source src="music\background_music_lofi.mp3" type="audio/mpeg">
         <p>If you are reading this, it is because your browser does not support the audio element.</p>
     </audio>
-        <form method="post">
+    <form method="post">
+        <div class="editor">
             <div>
                 <label for="bgColor">Hintergrundfarbe:</label>
                 <input id="bgColor" type="color" name="bgColor">
@@ -19,7 +21,7 @@
             <br>
             <div>
                 <label for="fontColor">Schriftfarbe:</label>
-                <input id="fontColor"type="color" name="fontColor">
+                <input id="fontColor" type="color" name="fontColor">
             </div>
             <br>
             <div>
@@ -29,7 +31,7 @@
             <br>
             <div>
                 <label for="fontFamily">Schriftart:</label>
-                <select  name="fontFamily" id="fontFamily">
+                <select name="fontFamily" id="fontFamily">
                     <option value="none">Bitte wählen</option>
                     <option value="Arial, sans-serif">Arial, sans-serif</option>
                     <option value="Palatino Linotype">Palatino Linotype</option>
@@ -45,26 +47,24 @@
             <br>
             <div>
                 <label for="fontDeco">Textdekoration:</label>
-                <select  name="fontDeco" id="fontDeco">
+                <select name="fontDeco" id="fontDeco">
                     <option value="1">Bitte wählen</option>
                     <option value="None">None</option>
                     <option value="line-through">line-through</option>
                     <option value="underline">underline</option>
                 </select>
             </div>
-            </div>
             <br>
-        
+
             <label for="text">Dein Text:</label>
             <br>
             <textarea name="text" id="text" cols="30" rows="6"></textarea>
-            </div>
             <br>
             <div>
                 <label for="imageLink">Image-URl:</label>
                 <input type="text" name="imageLink" id="imageLink">
                 <br>
-                <button id="imageBtn" type="button">Bild anzeigen</button>
+                <button id="imageBtn" type="button" onclick="loadImage()">Bild anzeigen</button>
             </div>
             <div class="content">
                 <div>
@@ -83,17 +83,18 @@
                 <button id="saveBtn" type="submit">Speichern</button>
             </div>
             <br>
-            <div id="output">
-                <div id="joke-container" name="joke">Witz</div>
-                <div id="text-output"></div>
-                <div id="image-container"></div>
-            </div> 
-        </form>
-        
-    </main>
-    
-    
-    
-        
-    <script src="js/home.js">
-    </script>
+        </div>
+        <div id="output">
+            <div id="joke-container" name="joke">Witz</div>
+            <div id="text-output"></div>
+            <div id="image-container"></div>
+        </div>
+    </form>
+
+</main>
+
+
+
+
+<script src="js/home.js">
+</script>
