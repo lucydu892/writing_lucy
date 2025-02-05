@@ -1,13 +1,14 @@
 body {
   display: flex;
+  justify-content: space-around;
+  flex-direction: column;
 }
   header {
-    position: fixed;
     justify-self: start;
   }
   h1 {
-    margin-top: 60px;
     font-size: 20px;
+    justify-self: start;
     text-decoration: underline;
     color: white;
   }

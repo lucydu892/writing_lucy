@@ -1,7 +1,7 @@
 body {
     display: flex;
 }
-main{
+.card{
     justify-content: center;
     align-items: center;
     width: 50%;
