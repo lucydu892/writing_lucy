@@ -9,7 +9,7 @@ window.onload = function () {
     document.getElementById("imageWidth").addEventListener("input", changeImageSize);
     document.getElementById("imageHeight").addEventListener("input", changeImageSize);
     document.getElementById("joke-container").addEventListener("load", importJoke);
-    document.getElementById("imageLink").addEventListener("change", loadLocalImage);
+    document.getElementById("imageBtn").addEventListener("click", loadImage);
 
 }
 function innerText(e) {
@@ -70,11 +70,7 @@ function loadImage() {
     img.alt = "Benutzerdefiniertes Bild";
     img.style.width = "100px";
     img.style.height = "50px";
-
-    /*img.onerror = () => {
-        console.log(imageUrl);
-        alert("Das Bild konnte nicht geladen werden. Bitte URL baum überprüfen.");
-    };*/
+    container.appendChild(img);
 
 }
 function changeImageSize() {

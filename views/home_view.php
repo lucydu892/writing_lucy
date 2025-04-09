@@ -2,10 +2,6 @@
 require "views/header_view.php";
 require "models/home_model.php";
 ?>
-
-
-
-
 <main class="home-main">
     <header>
         <h1>Bearbeitung</h1>
@@ -67,19 +63,18 @@ require "models/home_model.php";
                 <label for="imageLink">Image-URl:</label>
                 <input type="text" name="imageLink" id="imageLink">
                 <br>
-                <button id="imageBtn" type="button" onclick="loadImage()">Bild anzeigen</button>
-            </div>
-            <div class="content">
-                <div>
-                    <label for="imageWidth">Breite des Bildes:</label>
-                    <input type="number" id="imageWidth" name="imageWidth">
-                    <br>
-                    <label for="imageHeight">Höhe des Bildes:</label>
-                    <input type="number" id="imageHeight" name="imageHeight">
-                </div>
+                <button id="imageBtn" type="button">Bild anzeigen</button>
             </div>
             <div>
-                <button id="resetBtn" type="button">Reset</button>
+                <label for="imageWidth">Breite des Bildes:</label>
+                <input type="number" id="imageWidth" name="imageWidth">
+                <br>
+                <label for="imageHeight">Höhe des Bildes:</label>
+                <input type="number" id="imageHeight" name="imageHeight">
+            </div>
+
+            <div>
+                <button id="resetBtn" type="reset">Reset</button>
             </div>
             <br>
             <div class="saveData">

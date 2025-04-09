@@ -15,7 +15,7 @@ button {
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin: 0px;
+  margin: 5px;
   width: 250px;
   height: 680px;
   input, select{
@@ -35,10 +35,13 @@ button {
 }
 .content-Output{
   display: flex;
-  flex-direction: row;
-  background-color: rgba(0, 255, 30, 0.1);
+  flex-direction: column;
+  background-color: rgba(17, 0, 255, 0.1);
+  border: black 2px solid;
+  width: 500px;
   padding: 10px;
-}
+  margin: 5px;
+  }
 footer p {
   margin-bottom: 0px;
   color: #000;
