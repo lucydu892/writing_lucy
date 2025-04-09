@@ -1,15 +1,15 @@
-window.onload = function() {
-document.getElementById("bgColor").addEventListener("input", changeBgColor);
-document.getElementById("fontColor").addEventListener("input", changeFontColor);
-document.getElementById("fontSize").addEventListener("input", changeFontSize);
-document.getElementById("fontFamily").addEventListener("input", changeFontFamily);
-document.getElementById("fontDeco").addEventListener("input", changeFontDeco);
-document.getElementById("text").addEventListener("keyup", innerText);
-document.getElementById("resetBtn").addEventListener("click", resetPersonalization);
-document.getElementById("imageWidth").addEventListener("input", changeImageSize);
-document.getElementById("imageHeight").addEventListener("input", changeImageSize);
-document.getElementById("joke-container").addEventListener("load", importJoke);
-document.getElementById("imageBtn").addEventListener("click", importImageFromComputer)
+window.onload = function () {
+    document.getElementById("bgColor").addEventListener("input", changeBgColor);
+    document.getElementById("fontColor").addEventListener("input", changeFontColor);
+    document.getElementById("fontSize").addEventListener("input", changeFontSize);
+    document.getElementById("fontFamily").addEventListener("input", changeFontFamily);
+    document.getElementById("fontDeco").addEventListener("input", changeFontDeco);
+    document.getElementById("text").addEventListener("keyup", innerText);
+    document.getElementById("resetBtn").addEventListener("click", resetPersonalization);
+    document.getElementById("imageWidth").addEventListener("input", changeImageSize);
+    document.getElementById("imageHeight").addEventListener("input", changeImageSize);
+    document.getElementById("joke-container").addEventListener("load", importJoke);
+    document.getElementById("imageLink").addEventListener("change", loadLocalImage);
 
 }
 function innerText(e) {
@@ -23,7 +23,7 @@ function resetPersonalization() {
     output.style.fontSize = "";
     output.style.fontFamily = "";
     output.style.textDecoration = "none";
-    container.innerHTML = " "; 
+    container.innerHTML = " ";
     container.innerText = " ";
 }
 
@@ -41,7 +41,7 @@ function changeFontSize() {
 }
 
 function changeFontFamily(e) {
-    var selectElem = e.target; 
+    var selectElem = e.target;
     var idx = selectElem.selectedIndex;
     var optionElem = selectElem.options[idx];
     if (optionElem.value > 0) {
@@ -50,7 +50,7 @@ function changeFontFamily(e) {
 }
 
 function changeFontDeco(e) {
-    var selectElem = e.target; 
+    var selectElem = e.target;
     var idx = selectElem.selectedIndex;
     var optionElem = selectElem.options[idx];
     if (optionElem.value > 0) {
@@ -59,22 +59,23 @@ function changeFontDeco(e) {
 }
 let img;
 function loadImage() {
-    var input = document.getElementById("imageLink").value;
+    var input = document.getElementById("imageLink");
     var imageUrl = input.value;
     var container = document.getElementById("image-container");
-    
+
     container.innerHTML = "";
 
     img = document.createElement("img");
     img.src = imageUrl;
     img.alt = "Benutzerdefiniertes Bild";
-    img.style.width = "100px"; 
-    img.style.height = "50px"; 
+    img.style.width = "100px";
+    img.style.height = "50px";
 
-    img.onerror = () => {
-        alert("Das Bild konnte nicht geladen werden. Bitte URL überprüfen.");
-    };
-    container.appendChild(img);
+    /*img.onerror = () => {
+        console.log(imageUrl);
+        alert("Das Bild konnte nicht geladen werden. Bitte URL baum überprüfen.");
+    };*/
+
 }
 function changeImageSize() {
     var width = document.getElementById("imageWidth").value;
@@ -86,12 +87,35 @@ function changeImageSize() {
 async function importJoke() {
     var response = await fetch("https://witzapi.de/api/joke/", { "method": "GET" });
     var jsonData = await response.json();
-    document.getElementById("joke-container").innerText = jsonData[0] .text;   
+    document.getElementById("joke-container").innerText = jsonData[0].text;
 }
 importJoke();
-setInterval(importJoke,60000)
+setInterval(importJoke, 60000)
 
-function importImageFromComputer () {
+function loadLocalImage(event) {
+    var file = event.target.files[0]
+    var conainer = document.getElementById("image-container");
+
+    if (!file) {
+        alert("Bitte eine Datei auswählen");
+        return;
+    }
+
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        conainer.innerHTML = "";
+        var img = document.createElement("img");
+        img.src = e.target.result; // Bild als Data-URL setzen
+        img.alt = "Hochgeladenes Bild";
+        img.style.width = "200px";
+        img.style.height = "auto";
+
+        container.appendChild(img);
+    };
+    reader.readAsDataURL(file);
+}
+
+/*function importImageFromComputer () {
     const input = document.querySelector('#imageLink');
     const image = document.querySelector('.image');
     input.addEventListener('change', e => {
@@ -106,4 +130,4 @@ function importImageFromComputer () {
             fileReader.readAsDataURL(file);
         }
     });
-   }
+   }*/

@@ -6,14 +6,17 @@ require "models/home_model.php";
 
 
 
-<main>
-<h1>Bearbeitung</h1>
+<main class="home-main">
+    <header>
+        <h1>Bearbeitung</h1>
+    </header>
+
     <audio autoplay>
         <source src="music\background_music_lofi.mp3" type="audio/mpeg">
         <p>If you are reading this, it is because your browser does not support the audio element.</p>
     </audio>
-    <form method="post">
-        <div class="editor">
+    <form class="content" method="post">
+        <div class="content-Editor">
             <div>
                 <label for="bgColor">Hintergrundfarbe:</label>
                 <input id="bgColor" type="color" name="bgColor">
@@ -84,17 +87,15 @@ require "models/home_model.php";
             </div>
             <br>
         </div>
-        <div id="output">
+        <div class="content-Output" id="output">
             <div id="joke-container" name="joke">Witz</div>
             <div id="text-output"></div>
             <div id="image-container"></div>
         </div>
     </form>
-
+    <footer>
+        <p>Writing Lucy</p>
+    </footer>
 </main>
-
-
-
-
 <script src="js/home.js">
 </script>

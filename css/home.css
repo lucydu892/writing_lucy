@@ -1,29 +1,49 @@
-body {
+.home-main {
   background-color: rgb(12, 12, 58);
-  display: flex;
   color: white;
+}
+.content {
+  display: flex;
+  flex-direction: row;
 }
 button {
   height: 20px;
   width: 60px;
 }
-
-main {
+.content-Editor {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0px;
+  width: 250px;
+  height: 680px;
+  input, select{
+      align-self: self-end;
+      width: 100px;
+      height: 25px;
+    }
+  textarea{
+      width: 200px;
+      height: 100px;
+    }
+  #saveBtn {
+      width: 250px;
+      height: 25px;
+    }
+  
+}
+.content-Output{
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  justify-self: flex-start;
+  background-color: rgba(0, 255, 30, 0.1);
+  padding: 10px;
 }
-.editor {
-  margin: 0px;
-}
-
-.saveData > button{
-  width: 300px;
-}
-#output {
-  display: flex;
-  flex-direction: row-reverse;
-  flex-wrap: wrap;
-  justify-self: center;
+footer p {
+  margin-bottom: 0px;
+  color: #000;
+  background-color: white;
+  text-align: center;
+  position: sticky;
+  height: 50px;
 }
