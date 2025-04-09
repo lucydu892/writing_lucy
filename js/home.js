@@ -8,9 +8,9 @@ window.onload = function () {
     document.getElementById("resetBtn").addEventListener("click", resetPersonalization);
     document.getElementById("imageWidth").addEventListener("input", changeImageSize);
     document.getElementById("imageHeight").addEventListener("input", changeImageSize);
-    document.getElementById("jokeOutput").addEventListener("load", importJoke);
+    document.getElementById("jokeInput").addEventListener("load", importJoke);
     document.getElementById("imageBtn").addEventListener("click", loadImage);
-
+    document.getElementById("saveBtn").addEventListener("click", jokeInput);
 }
 function innerText(e) {
     var textOutput = document.getElementById("textOutput");
@@ -113,7 +113,11 @@ function loadLocalImage(event) {
     };
     reader.readAsDataURL(file);
 }
-
+function jokeInput() {
+    const jokeDiv = document.getElementById("jokeOutput");
+    const jokeInput = document.getElementById("jokeInput");
+    jokeInput.value = jokeDiv.innerText;
+}
 /*function importImageFromComputer () {
     const input = document.querySelector('#imageLink');
     const image = document.querySelector('.image');

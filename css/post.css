@@ -1,13 +1,15 @@
 body {
     display: flex;
+    flex-direction: column;
+    background-color: rgb(12, 12, 58);
+    color: white;
+}
+.postContent {
+    margin-left: 50px;
+    margin-right: 50px;
 }
 .card{
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    height: 70%;
-}
-.card-header {
-    margin-bottom: 50px;
-    
+    display: flex;
+    border: 2px rgb(0, 0, 0) solid;
+    justify-content: space-between;
 }

@@ -38,7 +38,6 @@ button {
   flex-direction: column;
   background-color: rgba(17, 0, 255, 0.1);
   border: black 2px solid;
-  width: 500px;
   padding: 10px;
   margin: 5px;
   }
@@ -49,4 +48,23 @@ footer p {
   text-align: center;
   position: sticky;
   height: 50px;
+}
+@media screen and (max-width: 480px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+  .content-Output {
+    margin: 0px;
+    padding: 0px;
+  }
+  
+}
+@media screen and (max-width: 800px) {
+  .content-Output {
+    margin: 0px;
+    padding: 0px;
+    width: 100rem;
+  }
+  
 }

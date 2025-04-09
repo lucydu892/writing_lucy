@@ -83,7 +83,8 @@ require "models/home_model.php";
             <br>
         </div>
         <div class="content-Output" id="output">
-            <div id="jokeOutput" name="joke">Witz</div>
+            <input type="hidden" id="jokeInput" name="jokeOutput">
+            <div id="jokeOutput" name="jokeOutput">Witz</div>
             <div id="textOutput"></div>
             <div id="imageOutput"></div>
         </div>

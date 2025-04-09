@@ -16,11 +16,10 @@
             $imageWidth =$_POST['imageWidth'] ?? '';
             $imageHeight =$_POST['imageHeight'] ?? '';
             $time = date("Y-m-d H:i:s");
-            $joke = $_POST['joke'] ?? '';
+            $joke = $_POST['jokeOutput'] ?? '';
             $userId = ($_SESSION['userName']);
 
-            $stmt = $dbCon->prepare('INSERT INTO document 
-            (userId, text, image ,bgColor, fontColor, fontSize, fontFamily, fontDeco, imageWidth, imageHeight, time, joke) 
+            $stmt = $dbCon->prepare('INSERT INTO document (userId, text, image ,bgColor, fontColor, fontSize, fontFamily, fontDeco, imageWidth, imageHeight, time, joke) 
             VALUES (:userId, :text, :image, :bgColor, :fontColor, :fontSize, :fontFamily, :fontDeco, :imageWidth, :imageHeight, :time, :joke)');
             $stmt->bindParam(':userId', $userId);
             $stmt->bindParam(':text', $inputText);
