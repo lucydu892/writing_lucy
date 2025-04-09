@@ -8,12 +8,12 @@ window.onload = function () {
     document.getElementById("resetBtn").addEventListener("click", resetPersonalization);
     document.getElementById("imageWidth").addEventListener("input", changeImageSize);
     document.getElementById("imageHeight").addEventListener("input", changeImageSize);
-    document.getElementById("joke-container").addEventListener("load", importJoke);
+    document.getElementById("jokeOutput").addEventListener("load", importJoke);
     document.getElementById("imageBtn").addEventListener("click", loadImage);
 
 }
 function innerText(e) {
-    var textOutput = document.getElementById("text-output");
+    var textOutput = document.getElementById("textOutput");
     textOutput.innerText = e.target.value;
 }
 
@@ -23,8 +23,11 @@ function resetPersonalization() {
     output.style.fontSize = "";
     output.style.fontFamily = "";
     output.style.textDecoration = "none";
-    container.innerHTML = " ";
-    container.innerText = " ";
+    textOutput.innerHTML = " ";
+    text.value = " ";
+    imageOutput.innerHTML = " ";
+    imageLink.value = " ";
+
 }
 
 function changeBgColor() {
@@ -61,7 +64,7 @@ let img;
 function loadImage() {
     var input = document.getElementById("imageLink");
     var imageUrl = input.value;
-    var container = document.getElementById("image-container");
+    var container = document.getElementById("imageOutput");
 
     container.innerHTML = "";
 
@@ -83,14 +86,14 @@ function changeImageSize() {
 async function importJoke() {
     var response = await fetch("https://witzapi.de/api/joke/", { "method": "GET" });
     var jsonData = await response.json();
-    document.getElementById("joke-container").innerText = jsonData[0].text;
+    document.getElementById("jokeOutput").innerText = jsonData[0].text;
 }
 importJoke();
 setInterval(importJoke, 60000)
 
 function loadLocalImage(event) {
     var file = event.target.files[0]
-    var conainer = document.getElementById("image-container");
+    var conainer = document.getElementById("imageOutput");
 
     if (!file) {
         alert("Bitte eine Datei auswählen");

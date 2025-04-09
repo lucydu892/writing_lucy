@@ -74,7 +74,7 @@ require "models/home_model.php";
             </div>
 
             <div>
-                <button id="resetBtn" type="reset">Reset</button>
+                <button id="resetBtn" type="button">Reset</button>
             </div>
             <br>
             <div class="saveData">
@@ -83,9 +83,9 @@ require "models/home_model.php";
             <br>
         </div>
         <div class="content-Output" id="output">
-            <div id="joke-container" name="joke">Witz</div>
-            <div id="text-output"></div>
-            <div id="image-container"></div>
+            <div id="jokeOutput" name="joke">Witz</div>
+            <div id="textOutput"></div>
+            <div id="imageOutput"></div>
         </div>
     </form>
     <footer>
