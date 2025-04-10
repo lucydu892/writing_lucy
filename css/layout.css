@@ -12,7 +12,7 @@ header {
 h1 {
   font-size: 20px;
   justify-self: start;
-  text-decoration: underline;
+  text-decoration: none;
   color: white;
 }
 main {

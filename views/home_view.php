@@ -12,23 +12,32 @@ require "models/home_model.php";
     </audio>
     <form class="content" method="post">
         <div class="content-Editor">
+            <div class="dropdownTextEditor">
+                <p>
+                    >Textbearbeitung
+                </p>
+            </div>
             <div>
                 <label for="bgColor">Hintergrundfarbe:</label>
+                <br>
                 <input id="bgColor" type="color" name="bgColor">
             </div>
             <br>
             <div>
                 <label for="fontColor">Schriftfarbe:</label>
+                <br>
                 <input id="fontColor" type="color" name="fontColor">
             </div>
             <br>
             <div>
                 <label for="fontSize">Schriftgrösse:</label>
+                <br>
                 <input id="fontSize" type="number" maxlength="3" name="fontSize">
             </div>
             <br>
             <div>
                 <label for="fontFamily">Schriftart:</label>
+                <br>
                 <select name="fontFamily" id="fontFamily">
                     <option value="">Bitte wählen</option>
                     <option value="Arial">Arial</option>
@@ -45,6 +54,7 @@ require "models/home_model.php";
             <br>
             <div>
                 <label for="fontDeco">Textdekoration:</label>
+                <br>
                 <select name="fontDeco" id="fontDeco">
                     <option value="1">Bitte wählen</option>
                     <option value="None">None</option>
@@ -53,37 +63,40 @@ require "models/home_model.php";
                 </select>
             </div>
             <br>
-
             <label for="text">Dein Text:</label>
-            <br>
             <textarea name="text" id="text" cols="30" rows="6"></textarea>
             <br>
             <div>
                 <label for="imageLink">Image-URl:</label>
+                <br>
                 <input type="text" name="imageLink" id="imageLink">
+                <br>
                 <br>
                 <button id="imageBtn" type="button">Bild anzeigen</button>
             </div>
             <div>
+                <br>
                 <label for="imageWidth">Breite des Bildes:</label>
                 <input type="number" id="imageWidth" name="imageWidth">
+                <br>
                 <br>
                 <label for="imageHeight">Höhe des Bildes:</label>
                 <input type="number" id="imageHeight" name="imageHeight">
             </div>
 
             <div>
-                <button id="resetBtn" type="button">Reset</button>
+                <br>
+                <button class="resetBtn" id="resetBtn" type="button">Reset</button>
             </div>
             <br>
             <?php
-                if (isset($_SESSION['userId'])) { ?>
+            if (isset($_SESSION['userId'])) { ?>
                 <div class="saveData">
                     <button id="saveBtn" type="submit">Speichern</button>
                 </div>
                 <br>
             <?php } ?>
-                
+
         </div>
         <div class="content-Output" id="output">
             <input type="hidden" id="jokeInput" name="jokeOutput">

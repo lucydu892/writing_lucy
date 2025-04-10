@@ -7,25 +7,24 @@ main.home-main {
   display: flex;
   flex-direction: row;
 }
-button {
-  height: 20px;
-  width: 60px;
+.dropdownTextEditor {
+  background-color: green
 }
 .content-Editor {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: space-around;
   margin: 5px;
-  margin-left: 50px;
-  width: 250px;
-  height: 680px;
+  margin-left: 30px;
   input, select{
-      align-self: self-end;
-      width: 100px;
-      height: 25px;
+      background-color: #ddddddb7;
+      border-radius: 3px;
+      width: 150px;
+      height: 34px;
     }
   textarea{
+      background-color: #ddddddb7;
       width: 200px;
       height: 100px;
     }

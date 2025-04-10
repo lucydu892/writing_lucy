@@ -10,7 +10,8 @@ window.onload = function () {
     document.getElementById("imageHeight").addEventListener("input", changeImageSize);
     document.getElementById("jokeInput").addEventListener("load", importJoke);
     document.getElementById("imageBtn").addEventListener("click", loadImage);
-    document.getElementById("saveBtn").addEventListener("click", jokeInput)
+    document.getElementById("saveBtn").addEventListener("click", jokeInput);
+    document.getElementById("dropdownTextEditor").addEventListener("click", dropdown);
 }
 function innerText(e) {
     var textOutput = document.getElementById("textOutput");
@@ -119,6 +120,9 @@ function jokeInput() {
     const jokeDiv = document.getElementById("jokeOutput");
     const jokeInput = document.getElementById("jokeInput");
     jokeInput.value = jokeDiv.innerText;
+}
+function dropdown() {
+    
 }
 /*function importImageFromComputer () {
     const input = document.querySelector('#imageLink');
