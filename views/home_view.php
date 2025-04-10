@@ -76,10 +76,15 @@ require "models/home_model.php";
                 <button id="resetBtn" type="button">Reset</button>
             </div>
             <br>
+            <?php
+                if($_SESSION['userId']!=0) {
+            ?>
             <div class="saveData">
                 <button id="saveBtn" type="submit">Speichern</button>
             </div>
             <br>
+            <?php }
+            ?>
         </div>
         <div class="content-Output" id="output">
             <input type="hidden" id="jokeInput" name="jokeOutput">
