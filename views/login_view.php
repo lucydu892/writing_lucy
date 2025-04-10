@@ -1,6 +1,7 @@
 <?php
-    require 'views/layout_view.php';
-    require 'models/login_model.php';
+    require "views/header_view.php";
+    require "models/login_model.php";
+    require "views/footer_view.php";
 ?>
 
 <h1>Login</h1>

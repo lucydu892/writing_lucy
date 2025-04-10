@@ -1,6 +1,7 @@
 <?php
-require 'views/layout_view.php';
-require 'models/post_model.php';
+require "views/header_view.php";
+require "models/post_model.php";
+require "views/footer_view.php";
 $userLogedIn = isset($_SESSION['userId']);
 
 ?>

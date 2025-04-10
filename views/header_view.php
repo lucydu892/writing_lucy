@@ -19,7 +19,3 @@
         </div>
     </nav>
 </header>
-
-<footer>
-    <p>Writing Lucy</p>
-</footer>

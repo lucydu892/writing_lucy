@@ -1,6 +1,7 @@
 <?php
-require 'views/layout_view.php';
-require 'models/register_model.php';
+require "views/layout_view.php";
+require "models/register_model.php";
+require "views/footer_view.php";
 ?>
 <h1>Registrieren</h1>
 <?php if ($errors) { ?>
