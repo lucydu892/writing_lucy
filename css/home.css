@@ -1,7 +1,7 @@
 main.home-main {
   background-color: rgb(12, 12, 58);
   color: white;
-  padding: 20px;
+  margin: 0px;
 }
 .content {
   display: flex;

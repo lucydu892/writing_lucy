@@ -1,8 +1,5 @@
 <?php
-require "views/header_view.php";
 require "models/home_model.php";
-require "views/footer_view.php";
-
 ?>
 <main class="home-main">
     <header>
