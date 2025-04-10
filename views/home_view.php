@@ -13,14 +13,13 @@ require "models/home_model.php";
     <form class="content" method="post">
         <div class="content-Editor">
             <div class="dropdown">
-                <p class="dropdownTextPara" onclick="dropdown()">
+                <p class="dropdownEditPara" onclick="dropdown()">
                     Textbearbeitung
                 </p>
-                <div class="dropdownTextEditor" id="dropdownTextEditor">
+                <div class="dropdownEditor" id="dropdownEditor">
                     <label for="bgColor">Hintergrundfarbe:</label>
                     <br>
                     <input id="bgColor" type="color" name="bgColor">
-                    <br>
                     <br>
                     <label for="fontColor">Schriftfarbe:</label>
                     <br>
@@ -45,6 +44,7 @@ require "models/home_model.php";
                         <option value="Arial Black">Arial Black</option>
                     </select>
                     <br>
+                    <br>
                     <label for="fontDeco">Textdekoration:</label>
                     <br>
                     <select name="fontDeco" id="fontDeco">
@@ -67,14 +67,19 @@ require "models/home_model.php";
                 <br>
                 <button id="imageBtn" type="button">Bild anzeigen</button>
             </div>
-            <div>
-                <br>
-                <label for="imageWidth">Breite des Bildes:</label>
-                <input type="number" id="imageWidth" name="imageWidth">
-                <br>
-                <br>
-                <label for="imageHeight">Höhe des Bildes:</label>
-                <input type="number" id="imageHeight" name="imageHeight">
+            <div class="dropdown">
+                <p class="dropdownEditPara" onclick="dropdown()">
+                    Bildbearbeitung
+                </p>
+                <div class="dropdownEditor" id="dropdownEditor">
+                    <br>
+                    <label for="imageWidth">Breite des Bildes:</label>
+                    <input type="number" id="imageWidth" name="imageWidth">
+                    <br>
+                    <br>
+                    <label for="imageHeight">Höhe des Bildes:</label>
+                    <input type="number" id="imageHeight" name="imageHeight">
+                </div>
             </div>
 
             <div>

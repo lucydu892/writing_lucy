@@ -7,28 +7,31 @@ main.home-main {
   display: flex;
   flex-direction: row;
 }
-.dropdownTextPara{
-  color: green;
-  font-size: 30px;
+.dropdownEditPara{
+  color: rgb(29, 205, 159);
+  font-size: 20px;
 }
-.dropdownTextPara:hover, .dropdownTextPara:focus {
-  background-color: #b92929;
+.dropdownEditPara:hover, .dropdownEditPara:focus {
+  font-size: 30px;
+  background-color: yellow;
 }
 .dropdown{
   position: relative;
   display: inline-block;
 }
-.dropdownTextEditor {
+.dropdownEditor {
   display: none;
-  background-color: #a9f80b;
+  background-color: rgb(22, 153, 118);
+  border: none;
+  border-radius: 5px;
   z-index: 1;
 }
-.dropdownTextEditor input {
+.dropdownEditor input {
   color: black;
   text-decoration: none;
   display: block;
 }
-.dropdownTextEditor p:hover {
+.dropdownEditor p:hover {
   background-color: #ddd;
 }
 .show {display:block;}

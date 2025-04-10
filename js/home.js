@@ -11,7 +11,7 @@ window.onload = function () {
     document.getElementById("jokeInput").addEventListener("load", importJoke);
     document.getElementById("imageBtn").addEventListener("click", loadImage);
     document.getElementById("saveBtn").addEventListener("click", jokeInput);
-    document.getElementById("dropdownTextEditor").addEventListener("click", dropdown);
+    document.getElementById("dropdownEditor").addEventListener("click", dropdown);
 }
 function innerText(e) {
     var textOutput = document.getElementById("textOutput");
@@ -122,7 +122,7 @@ function jokeInput() {
     jokeInput.value = jokeDiv.innerText;
 }
 function dropdown() {
-    document.getElementById("dropdownTextEditor").classList.toggle("show");
+    document.getElementById("dropdownEditor").classList.toggle("show");
 }
 /*function importImageFromComputer () {
     const input = document.querySelector('#imageLink');
