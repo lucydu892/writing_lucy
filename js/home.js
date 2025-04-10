@@ -122,7 +122,7 @@ function jokeInput() {
     jokeInput.value = jokeDiv.innerText;
 }
 function dropdown() {
-    
+    document.getElementById("dropdownTextEditor").classList.toggle("show");
 }
 /*function importImageFromComputer () {
     const input = document.querySelector('#imageLink');

@@ -12,10 +12,17 @@ require "models/home_model.php";
     </audio>
     <form class="content" method="post">
         <div class="content-Editor">
-            <div class="dropdownTextEditor">
-                <p>
-                    >Textbearbeitung
+            <div class="dropdown">
+                <p class="dropdownTextPara" onclick="dropdown()">
+                    Textbearbeitung
                 </p>
+                <div class="dropdownTextEditor" id="dropdownTextEditor">
+                    <p>1</p>
+                    <br>
+                    <p>2</p>
+                    <br>
+                    <p>3</p>
+                </div>
             </div>
             <div>
                 <label for="bgColor">Hintergrundfarbe:</label>
