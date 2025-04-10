@@ -1,5 +1,5 @@
 <?php
-require "views/header_view.php";
+require "views/layout_view.php";
 require "models/home_model.php";
 ?>
 <main class="home-main">
@@ -89,9 +89,7 @@ require "models/home_model.php";
             <div id="imageOutput"></div>
         </div>
     </form>
-    <footer>
-        <p>Writing Lucy</p>
-    </footer>
+
 </main>
 <script src="js/home.js">
 </script>

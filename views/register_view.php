@@ -1,5 +1,5 @@
 <?php
-require 'views/header_view.php';
+require 'views/layout_view.php';
 require 'models/register_model.php';
 ?>
 <h1>Registrieren</h1>
