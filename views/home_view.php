@@ -30,13 +30,13 @@ require "models/home_model.php";
             <div>
                 <label for="fontFamily">Schriftart:</label>
                 <select name="fontFamily" id="fontFamily">
-                    <option value="none">Bitte wählen</option>
-                    <option value="Arial, sans-serif">Arial, sans-serif</option>
+                    <option value="">Bitte wählen</option>
+                    <option value="Arial">Arial</option>
                     <option value="Palatino Linotype">Palatino Linotype</option>
                     <option value="Helvetica">Helvetica</option>
                     <option value="Impact">Impact</option>
                     <option value="Times New Roman serif">Times New Roman serif</option>
-                    <option value="Georgia serif">Georgia serif</option>
+                    <option value="Georgia">Georgia serif</option>
                     <option value="Lucida Sans Unicode">Lucida Sans Unicode</option>
                     <option value="Courier New monospace">Courier New monospace</option>
                     <option value="Arial Black">Arial Black</option>
@@ -77,14 +77,13 @@ require "models/home_model.php";
             </div>
             <br>
             <?php
-                if($_SESSION['userId']!=0) {
-            ?>
-            <div class="saveData">
-                <button id="saveBtn" type="submit">Speichern</button>
-            </div>
-            <br>
-            <?php }
-            ?>
+                if (isset($_SESSION['userId'])) { ?>
+                <div class="saveData">
+                    <button id="saveBtn" type="submit">Speichern</button>
+                </div>
+                <br>
+            <?php } ?>
+                
         </div>
         <div class="content-Output" id="output">
             <input type="hidden" id="jokeInput" name="jokeOutput">

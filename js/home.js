@@ -10,7 +10,7 @@ window.onload = function () {
     document.getElementById("imageHeight").addEventListener("input", changeImageSize);
     document.getElementById("jokeInput").addEventListener("load", importJoke);
     document.getElementById("imageBtn").addEventListener("click", loadImage);
-    document.getElementById("saveBtn").addEventListener("click", jokeInput);
+    document.getElementById("saveBtn").addEventListener("click", jokeInput)
 }
 function innerText(e) {
     var textOutput = document.getElementById("textOutput");
@@ -18,8 +18,11 @@ function innerText(e) {
 }
 
 function resetPersonalization() {
-    output.style.backgroundColor = "";
-    output.style.color = "white";
+    bgColor.value = "#0d0b4e";
+    output.style.backgroundColor = "#0d0b4e";
+    fontColor.value = "#FFFFFF";
+    output.style.color = "#FFFFFF";
+    fontSize.value = " "
     output.style.fontSize = "";
     output.style.fontFamily = "";
     output.style.textDecoration = "none";
@@ -43,15 +46,14 @@ function changeFontSize() {
     output.style.fontSize = fontSize + "px";
 }
 
+
 function changeFontFamily(e) {
     var selectElem = e.target;
-    var idx = selectElem.selectedIndex;
-    var optionElem = selectElem.options[idx];
-    if (optionElem.value > 0) {
-        output.style.fontFamily = optionElem.innerText;
+    var optionElem = selectElem.options[selectElem.selectedIndex];
+    if (optionElem.value) { 
+        output.style.fontFamily = optionElem.value; 
     }
 }
-
 function changeFontDeco(e) {
     var selectElem = e.target;
     var idx = selectElem.selectedIndex;

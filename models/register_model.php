@@ -54,6 +54,7 @@ require 'core/database.php';
         if (count($errors) > 0) {
                 echo "error";
         } else {
+            session_start();
             $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
             $prep = $dbCon->prepare("INSERT INTO `user` (firstName, lastName, email, userName, password, gender) 

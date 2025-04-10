@@ -1,7 +1,6 @@
 <?php
     require "core/database.php";
     $dbCon = connectToDatabase();
- 
     
     if(isset($_SESSION['userId'])) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
