@@ -1,11 +1,10 @@
 <?php
 require "models/post_model.php";
-
 $userLogedIn = isset($_SESSION['userId']);
-
 ?>
-<h1>Willkommen <?= $_SESSION['userName']; ?></h1>
+
 <main class="postContent">
+<h1>Willkommen <?= $_SESSION['userName']; ?></h1>   
     <div class="cards">
         <?php foreach ($post as $postOnDb): ?>
             <div class="card">
