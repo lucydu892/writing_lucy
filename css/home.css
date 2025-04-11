@@ -12,8 +12,7 @@ main.home-main {
   font-size: 20px;
 }
 .dropdownEditPara:hover, .dropdownEditPara:focus {
-  font-size: 30px;
-  background-color: yellow;
+  font-size: 25px;
 }
 .dropdown{
   position: relative;

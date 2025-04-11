@@ -13,10 +13,10 @@ require "models/home_model.php";
     <form class="content" method="post">
         <div class="content-Editor">
             <div class="dropdown">
-                <p class="dropdownEditPara" onclick="dropdown()">
+                <p class="dropdownEditPara" onclick="dropdownText()">
                     Textbearbeitung
                 </p>
-                <div class="dropdownEditor" id="dropdownEditor">
+                <div class="dropdownEditor" id="dropdownEditText">
                     <label for="bgColor">Hintergrundfarbe:</label>
                     <br>
                     <input id="bgColor" type="color" name="bgColor">
@@ -67,15 +67,15 @@ require "models/home_model.php";
                 <br>
                 <button id="imageBtn" type="button">Bild anzeigen</button>
             </div>
+            <br>
             <div class="dropdown">
-                <p class="dropdownEditPara" onclick="dropdown()">
+                <p class="dropdownEditPara" onclick="dropdownImg()">
                     Bildbearbeitung
                 </p>
-                <div class="dropdownEditor" id="dropdownEditor">
+                <div class="dropdownEditor" id="dropdownEditImg">
                     <br>
                     <label for="imageWidth">Breite des Bildes:</label>
                     <input type="number" id="imageWidth" name="imageWidth">
-                    <br>
                     <br>
                     <label for="imageHeight">Höhe des Bildes:</label>
                     <input type="number" id="imageHeight" name="imageHeight">

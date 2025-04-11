@@ -121,8 +121,11 @@ function jokeInput() {
     const jokeInput = document.getElementById("jokeInput");
     jokeInput.value = jokeDiv.innerText;
 }
-function dropdown() {
-    document.getElementById("dropdownEditor").classList.toggle("show");
+function dropdownText() {
+    document.getElementById("dropdownEditText").classList.toggle("show");
+}
+function dropdownImg() {
+    document.getElementById("dropdownEditImg").classList.toggle("show");
 }
 /*function importImageFromComputer () {
     const input = document.querySelector('#imageLink');
