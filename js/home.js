@@ -1,17 +1,21 @@
 window.onload = function () {
+    //Bildbearbeitung
     document.getElementById("bgColor").addEventListener("input", changeBgColor);
     document.getElementById("fontColor").addEventListener("input", changeFontColor);
     document.getElementById("fontSize").addEventListener("input", changeFontSize);
     document.getElementById("fontFamily").addEventListener("input", changeFontFamily);
     document.getElementById("fontDeco").addEventListener("input", changeFontDeco);
+    //Text eingabe
     document.getElementById("text").addEventListener("keyup", innerText);
+    //Reset 
     document.getElementById("resetBtn").addEventListener("click", resetPersonalization);
+    //Bildbearbeitung
     document.getElementById("imageWidth").addEventListener("input", changeImageSize);
     document.getElementById("imageHeight").addEventListener("input", changeImageSize);
+    //Ausgabe
     document.getElementById("jokeInput").addEventListener("load", importJoke);
     document.getElementById("imageBtn").addEventListener("click", loadImage);
     document.getElementById("saveBtn").addEventListener("click", jokeInput);
-    document.getElementById("dropdownEditor").addEventListener("click", dropdown);
 }
 function innerText(e) {
     var textOutput = document.getElementById("textOutput");
@@ -94,28 +98,6 @@ async function importJoke() {
 importJoke();
 setInterval(importJoke, 60000)
 
-function loadLocalImage(event) {
-    var file = event.target.files[0]
-    var conainer = document.getElementById("imageOutput");
-
-    if (!file) {
-        alert("Bitte eine Datei auswählen");
-        return;
-    }
-
-    var reader = new FileReader();
-    reader.onload = function (e) {
-        conainer.innerHTML = "";
-        var img = document.createElement("img");
-        img.src = e.target.result; // Bild als Data-URL setzen
-        img.alt = "Hochgeladenes Bild";
-        img.style.width = "200px";
-        img.style.height = "auto";
-
-        container.appendChild(img);
-    };
-    reader.readAsDataURL(file);
-}
 function jokeInput() {
     const jokeDiv = document.getElementById("jokeOutput");
     const jokeInput = document.getElementById("jokeInput");
@@ -127,19 +109,3 @@ function dropdownText() {
 function dropdownImg() {
     document.getElementById("dropdownEditImg").classList.toggle("show");
 }
-/*function importImageFromComputer () {
-    const input = document.querySelector('#imageLink');
-    const image = document.querySelector('.image');
-    input.addEventListener('change', e => {
-        const file = input.files[0];
-        if(file.type.match('image/*')) {
-            const fileReader = new FileReader();
-            fileReader.addEventListener('load', e => {
-                const img = document.createElement('img');
-                img.setAttribute('src', e.target.result);
-                image.appendChild(img);
-            });
-            fileReader.readAsDataURL(file);
-        }
-    });
-   }*/

@@ -64,6 +64,10 @@ require "models/home_model.php";
                 <br>
                 <input type="text" name="imageLink" id="imageLink">
                 <br>
+                <label for="imageLocal">Bild hochladen:</label>
+                <br>
+                <input type="file" name="imageLocal" id="imageLocal">
+                <br>
                 <br>
                 <button id="imageBtn" type="button">Bild anzeigen</button>
             </div>
@@ -73,7 +77,6 @@ require "models/home_model.php";
                     Bildbearbeitung
                 </p>
                 <div class="dropdownEditor" id="dropdownEditImg">
-                    <br>
                     <label for="imageWidth">Breite des Bildes:</label>
                     <input type="number" id="imageWidth" name="imageWidth">
                     <br>
