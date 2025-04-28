@@ -6,10 +6,14 @@ $userLogedIn = isset($_SESSION['userId']);
 <main class="postContent">
 <h1>Willkommen <?= $_SESSION['userName']; ?></h1>   
     <div class="cards">
-        <?php foreach ($post as $postOnDb): ?>
-            <div class="card">
+        <?php foreach ($post as $index => $postOnDb):?>
+            <?php
+            $date = date('d.m.Y', strtotime($postOnDb["time"]));
+            $fileName = "Beitrag_". $date;
+            ?>
+            <div id="card<?= $index ?>" class="card">
                 <div class="card-header">
-                    <p>Am <?= $postOnDb["time"] ?></p>
+                    <p>Am <?= $date?></p>
                 </div>
                 <div class="card-body" style="background-color: <?= $postOnDb["bgColor"] ?>">
                     <div class="card-text">
@@ -22,8 +26,13 @@ $userLogedIn = isset($_SESSION['userId']);
                         <img src="images\defaultpicture.png" alt="default Picture" class="card-img-top" alt="post" style="width: 45%; height:auto;">
                     <?php } ?>
                 </div>
+                <div class="card-footer">
+                    <button onclick="downloadPostcard('card<?= $index ?>', '<?= $fileName ?>')">Herunterladen</button>
+                </div>
             </div>
             <br>
         <?php endforeach; ?>
     </div>
 </main>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="js/post.js"></script>
