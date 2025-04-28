@@ -64,12 +64,15 @@ require "models/home_model.php";
                 <br>
                 <input type="text" name="imageLink" id="imageLink">
                 <br>
-                <label for="imageLocal">Bild hochladen:</label>
+                <label for="imageLocal">Bild hochladen:
                 <br>
-                <input type="file" name="imageLocal" id="imageLocal">
+                <input id="imageLocal" name="files[]" type="file">
+                </label>
                 <br>
                 <br>
                 <button id="imageBtn" type="button">Bild anzeigen</button>
+                <br>
+                <button id="test" onclick="loadLocalImage()">test</button>
             </div>
             <br>
             <div class="dropdown">
@@ -103,7 +106,10 @@ require "models/home_model.php";
             <input type="hidden" id="jokeInput" name="jokeOutput">
             <div id="jokeOutput" name="jokeOutput">Witz</div>
             <div id="textOutput"></div>
-            <div id="imageOutput"></div>
+            <div id="imageOutput">
+                <ul id="dateiListe"></ul>
+                <ul id="thumbnailListe"></ul>
+            </div>
         </div>
     </form>
 

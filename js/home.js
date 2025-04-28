@@ -16,6 +16,8 @@ window.onload = function () {
     document.getElementById("jokeInput").addEventListener("load", importJoke);
     document.getElementById("imageBtn").addEventListener("click", loadImage);
     document.getElementById("saveBtn").addEventListener("click", jokeInput);
+
+    document.getElementById("test").addEventListener("click", loadLocalImage);
 }
 function innerText(e) {
     var textOutput = document.getElementById("textOutput");
@@ -55,8 +57,8 @@ function changeFontSize() {
 function changeFontFamily(e) {
     var selectElem = e.target;
     var optionElem = selectElem.options[selectElem.selectedIndex];
-    if (optionElem.value) { 
-        output.style.fontFamily = optionElem.value; 
+    if (optionElem.value) {
+        output.style.fontFamily = optionElem.value;
     }
 }
 function changeFontDeco(e) {
@@ -109,3 +111,65 @@ function dropdownText() {
 function dropdownImg() {
     document.getElementById("dropdownEditImg").classList.toggle("show");
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+	document.getElementById('imageLocal')
+		.addEventListener('change', dateiauswahlGeändert, false);
+});
+
+function dateiauswahlGeändert(event) {
+	const dateiliste = document.getElementById('dateiListe');
+	const thumbnailListe = document.getElementById('thumbnailListe');
+	dateiliste.innerHTML = '';
+	thumbnailListe.innerHTML = '';
+	for (const file of event.target.files) {
+		dateiliste.insertAdjacentHTML('beforeend',
+			``
+		);
+		// Check if file is an image
+		if (file.type.startsWith('image/')) {
+			const thumbnailURL = URL.createObjectURL(file);
+			const imgElement = document.createElement('img');
+			imgElement.src = thumbnailURL;
+			imgElement.alt = file.name;
+			imgElement.onload = () => URL.revokeObjectURL(imgElement.src);
+			thumbnailListe.appendChild(imgElement);
+		}
+	}
+}
+/*
+const fileInput = document.getElementById('imageLocal');
+const fileContent = document.getElementById('imageOutput');
+
+// Function to read file content
+function readFile(event) {
+    const file = event.target.files[0];
+
+    if (!file) {
+        fileContent.textContent = 'No file selected.';
+        return;
+    }
+
+    const reader = new FileReader();
+
+    // This is the onload event for when the file is successfully read
+    reader.onload = function (e) {
+        // Display the file content in the div
+        fileContent.textContent = e.target.result;
+    };
+
+    // This handles any errors during file reading
+    reader.onerror = function (e) {
+        fileContent.textContent = `Error reading file: ${e.target.error}`;
+    };
+
+    // Read the selected file as text (you can change this to read as other formats)
+    reader.readAsText(file);
+}
+
+// Attach the event listener to the file input
+fileInput.addEventListener('change', readFile);
+const imageDisplay = document.getElementById('imageDisplay');
+reader.onload = function (e) {
+    imageDisplay.src = e.target.result;
+};*/
