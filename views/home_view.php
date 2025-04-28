@@ -60,19 +60,14 @@ require "models/home_model.php";
             <textarea name="text" id="text" cols="30" rows="6"></textarea>
             <br>
             <div>
-                <label for="imageLink">Image-URl:</label>
+                <!-- <label for="imageLink">Image-URl:</label>
                 <br>
-                <input type="text" name="imageLink" id="imageLink">
-                <br>
+                <input type="text" name="imageLink" id="imageLink"> 
+                <br>-->
                 <label for="imageLocal">Bild hochladen:
                 <br>
-                <input id="imageLocal" name="files[]" type="file">
+                <input id="imageLocal" name="files[]" type="file" accept="image/png, image/gif, image/jpeg">
                 </label>
-                <br>
-                <br>
-                <button id="imageBtn" type="button">Bild anzeigen</button>
-                <br>
-                <button id="test" onclick="loadLocalImage()">test</button>
             </div>
             <br>
             <div class="dropdown">
@@ -108,7 +103,6 @@ require "models/home_model.php";
             <div id="textOutput"></div>
             <div id="imageOutput">
                 <ul id="dateiListe"></ul>
-                <ul id="thumbnailListe"></ul>
             </div>
         </div>
     </form>

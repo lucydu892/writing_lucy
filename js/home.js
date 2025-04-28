@@ -69,27 +69,27 @@ function changeFontDeco(e) {
         output.style.textDecoration = optionElem.innerText;
     }
 }
-let img;
-function loadImage() {
-    var input = document.getElementById("imageLink");
-    var imageUrl = input.value;
-    var container = document.getElementById("imageOutput");
+// let img;
+// function loadImage() {
+//     var input = document.getElementById("imageLink");
+//     var imageUrl = input.value;
+//     var container = document.getElementById("imageOutput");
 
-    container.innerHTML = "";
+//     container.innerHTML = "";
 
-    img = document.createElement("img");
-    img.src = imageUrl;
-    img.alt = "Benutzerdefiniertes Bild";
-    img.style.width = "100px";
-    img.style.height = "50px";
-    container.appendChild(img);
+//     img = document.createElement("img");
+//     img.src = imageUrl;
+//     img.alt = "Benutzerdefiniertes Bild";
+//     img.style.width = "100px";
+//     img.style.height = "50px";
+//     container.appendChild(img);
 
-}
+// }
 function changeImageSize() {
     var width = document.getElementById("imageWidth").value;
-    img.style.width = width + "px";
+    imgElement.style.width = width + "px";
     var height = document.getElementById("imageHeight").value;
-    img.style.height = height + "px";
+    imgElement.style.height = height + "px";
 
 }
 async function importJoke() {
@@ -116,60 +116,34 @@ document.addEventListener('DOMContentLoaded', function () {
 	document.getElementById('imageLocal')
 		.addEventListener('change', dateiauswahlGeändert, false);
 });
-
+let imgElement;
 function dateiauswahlGeändert(event) {
-	const dateiliste = document.getElementById('dateiListe');
-	const thumbnailListe = document.getElementById('thumbnailListe');
-	dateiliste.innerHTML = '';
-	thumbnailListe.innerHTML = '';
+	const liste = document.getElementById('dateiListe'); // Nur noch ein gemeinsames Element
+	liste.innerHTML = '';
+
 	for (const file of event.target.files) {
-		dateiliste.insertAdjacentHTML('beforeend',
-			``
-		);
-		// Check if file is an image
+		const listItem = document.createElement('div'); // Container für Dateiname + optionales Bild
+		listItem.style.marginBottom = '10px';
+
+		/* Dateiname hinzufügen
+		const fileName = document.createElement('span');
+		fileName.textContent = file.name;
+		listItem.appendChild(fileName);
+        */
+
+		// Wenn es ein Bild ist, Thumbnail hinzufügen
 		if (file.type.startsWith('image/')) {
 			const thumbnailURL = URL.createObjectURL(file);
-			const imgElement = document.createElement('img');
+			imgElement = document.createElement('img');
 			imgElement.src = thumbnailURL;
 			imgElement.alt = file.name;
+			imgElement.style.width = '100px';
+            imgElement.style.height = '50px'; // Thumbnail etwas kleiner
+
 			imgElement.onload = () => URL.revokeObjectURL(imgElement.src);
-			thumbnailListe.appendChild(imgElement);
+			listItem.appendChild(imgElement);
 		}
+
+		liste.appendChild(listItem);
 	}
 }
-/*
-const fileInput = document.getElementById('imageLocal');
-const fileContent = document.getElementById('imageOutput');
-
-// Function to read file content
-function readFile(event) {
-    const file = event.target.files[0];
-
-    if (!file) {
-        fileContent.textContent = 'No file selected.';
-        return;
-    }
-
-    const reader = new FileReader();
-
-    // This is the onload event for when the file is successfully read
-    reader.onload = function (e) {
-        // Display the file content in the div
-        fileContent.textContent = e.target.result;
-    };
-
-    // This handles any errors during file reading
-    reader.onerror = function (e) {
-        fileContent.textContent = `Error reading file: ${e.target.error}`;
-    };
-
-    // Read the selected file as text (you can change this to read as other formats)
-    reader.readAsText(file);
-}
-
-// Attach the event listener to the file input
-fileInput.addEventListener('change', readFile);
-const imageDisplay = document.getElementById('imageDisplay');
-reader.onload = function (e) {
-    imageDisplay.src = e.target.result;
-};*/
