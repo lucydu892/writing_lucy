@@ -8,7 +8,8 @@ $routes = [
     'register'      => 'views/register_view.php',
     'login'         => 'views/login_view.php',
     'post'          => 'views/post_view.php',
-    'logout'        => 'views/logout_view.php'
+    'logout'        => 'views/logout_view.php',
+    'settings'      => 'views/settings_view.php',
 ];
 
 if (array_key_exists($page, $routes)) {

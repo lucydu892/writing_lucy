@@ -10,6 +10,7 @@
                     <?php if (isset($_SESSION['userId'])) { ?>
                         <a class="nav-link active" aria-current="page" href="post">Meine Beiträge</a>
                         <a class="nav-link active" aria-current="page" href="logout">Abmelden</a>
+                        <a class="nav-link active" aria-current="page" href="settings">Einstellung</a>
                     <?php } else { ?>
                         <a class="nav-link active" aria-current="page" href="register">Registrieren</a>
                         <a class="nav-link active" aria-current="page" href="login">Anmelden</a>
