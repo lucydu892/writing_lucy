@@ -14,7 +14,6 @@ window.onload = function () {
     document.getElementById("imageHeight").addEventListener("input", changeImageSize);
     //Ausgabe
     document.getElementById("jokeInput").addEventListener("load", importJoke);
-    document.getElementById("imageBtn").addEventListener("click", loadImage);
     document.getElementById("saveBtn").addEventListener("click", jokeInput);
 
     // document.getElementById("test").addEventListener("click", loadLocalImage);
@@ -71,22 +70,7 @@ function changeFontDeco(e) {
         output.style.textDecoration = optionElem.innerText;
     }
 }
-// let img;
-// function loadImage() {
-//     var input = document.getElementById("imageLink");
-//     var imageUrl = input.value;
-//     var container = document.getElementById("imageOutput");
 
-//     container.innerHTML = "";
-
-//     img = document.createElement("img");
-//     img.src = imageUrl;
-//     img.alt = "Benutzerdefiniertes Bild";
-//     img.style.width = "100px";
-//     img.style.height = "50px";
-//     container.appendChild(img);
-
-// }
 function changeImageSize() {
     var width = document.getElementById("imageWidth").value;
     imgElement.style.width = width + "px";
@@ -114,9 +98,9 @@ function dropdownImg() {
     document.getElementById("dropdownEditImg").classList.toggle("show");
 }
 
-// document.addEventListener('DOMContentLoaded', function () {
-// 	document.getElementById('imageLocal').addEventListener('change', dateiauswahlGeändert, false);
-// });
+ document.addEventListener('DOMContentLoaded', function () {
+	document.getElementById('imageLocal').addEventListener('change', dateiauswahlGeändert, false);
+ });
 let imgElement;
 function dateiauswahlGeändert(event) {
 	const liste = document.getElementById('dateiListe'); // Nur noch ein gemeinsames Element
@@ -148,16 +132,3 @@ function dateiauswahlGeändert(event) {
 		liste.appendChild(listItem);
 	}
 }
-// function downloadPostcard(cardId) {
-//     const element = document.getElementById(cardId);
-//     if (!element) {
-//         console.error("Element nicht gefunden: " + cardId);
-//         return;
-//     }
-//     html2canvas(element).then(function (canvas) {
-//         const link = document.createElement("a");
-//         link.href = canvas.toDataURL("image/png");
-//         link.download = cardId + ".png";
-//         link.click();
-//     });
-// }
