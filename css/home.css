@@ -6,6 +6,7 @@ main.home-main {
 .content {
   display: flex;
   flex-direction: row;
+  
 }
 .dropdownEditPara{
   color: rgb(29, 205, 159);
@@ -38,7 +39,6 @@ main.home-main {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  justify-content: space-around;
   margin: 5px;
   margin-left: 30px;
   input, select{

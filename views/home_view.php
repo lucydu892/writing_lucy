@@ -46,14 +46,14 @@ require "models/home_model.php";
                     <br>
                     <br>
                     <label for="fontDeco">Textdekoration:</label>
-                    <br>
+                    <!-- <br>
                     <select name="fontDeco" id="fontDeco">
                         <option value="1">Bitte wählen</option>
                         <option value="None">None</option>
                         <option value="line-through">line-through</option>
                         <option value="underline">underline</option>
                     </select>
-                    <br>
+                    <br> -->
                 </div>
             </div>
             <label for="text">Dein Text:</label>
@@ -62,12 +62,12 @@ require "models/home_model.php";
             <div>
                 <!-- <label for="imageLink">Image-URl:</label>
                 <br>
-                <input type="text" name="imageLink" id="imageLink"> 
-                <br>-->
-                <label for="imageLocal">Bild hochladen:
+                <input type="text" name="imageLink" id="imageLink">  -->
+                <br>
+                <label for="imageLocal">Bild hochladen:</label>
                 <br>
                 <input id="imageLocal" name="files[]" type="file" accept="image/png, image/gif, image/jpeg">
-                </label>
+                
             </div>
             <br>
             <div class="dropdown">

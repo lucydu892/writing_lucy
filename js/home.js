@@ -4,7 +4,7 @@ window.onload = function () {
     document.getElementById("fontColor").addEventListener("input", changeFontColor);
     document.getElementById("fontSize").addEventListener("input", changeFontSize);
     document.getElementById("fontFamily").addEventListener("input", changeFontFamily);
-    document.getElementById("fontDeco").addEventListener("input", changeFontDeco);
+    //document.getElementById("fontDeco").addEventListener("input", changeFontDeco);
     //Text eingabe
     document.getElementById("text").addEventListener("keyup", innerText);
     //Reset 
