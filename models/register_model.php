@@ -62,7 +62,7 @@ require 'models/register_model_validate.php';
             ]);
             
             if ($result) {
-                echo 'Du hast dich erfolgreich angemeldet <a href="login.php">Zum login</a>';
+                echo 'Du hast dich erfolgreich angemeldet <a href="login">Zum login</a>';
             } else {
                 echo "Unfortunately an error occurred while saving.";
             }
