@@ -3,10 +3,10 @@ require "models/register_model.php";
 ?>
 <main>
   <h1>Registrieren</h1>
-  <?php if ($errors) { ?>
+  <?php if ($validate->getErrors()) { ?>
     <ul class="error-box">
       <?php
-      foreach ($errors as $error) {
+      foreach ($validate->getErrors() as $error) {
         echo "<li>$error";
       }
       ?>

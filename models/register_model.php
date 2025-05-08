@@ -1,5 +1,6 @@
 <?php 
 require 'core/database.php';
+require 'models/register_model_validate.php';
     $errors = [];
 
     $firstName = $_POST['firstName'] ?? '';
@@ -8,33 +9,25 @@ require 'core/database.php';
     $userName = $_POST['userName'] ?? '';
     $password = $_POST['password'] ?? '';
     $gender = $_POST['gender'] ?? '';
+    $checkbox = $_POST['checkbox'] ?? '';
     
+    
+    $validate = new ValidateRegister();
 
     $dbCon = connectToDatabase();   
     $isUserNameExist = false;
+
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        
+        
+        $validate->validateFirstname($firstName);
+        $validate->validateLastName($lastName);
+        $validate->validateEmail($email);
+        $validate->validateUserName($userName);
+        $validate->validatePassword($password);
+        $validate->validateCheckbox($checkbox);
        
-        $checkbox = $_POST['checkbox'] ?? '';
-        if ($firstName === '') {
-            array_push($errors, "Bitte dein Vornamen eingeben.");
-        }
-        if ($lastName === '') {
-            array_push($errors, "Bitte dein Nachname eingeben.");
-        }
-        if ($email === '') {
-            array_push($errors, "Bitte deine E-Mail eingeben.");
-        } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            array_push($errors, "Bitte eine gültige E-Mail eingeben");
-        }
-        if ($userName === '') {
-            array_push($errors, "Bitte ein Benutzernamen eingeben.");
-        }
-        if ($password === '') {
-            array_push($errors, "Bitte ein Password eingeben.");
-        }
-        if ($checkbox == 0) {
-            array_push($errors, "Bitte die Allgemeinen Geschäftsbedingungen annehmen.");
-        }
 
         // Check if the username already exists
         $prep = $dbCon->prepare('SELECT userName FROM user');
@@ -51,9 +44,8 @@ require 'core/database.php';
         }
 
         // Display errors or proceed with registration
-        if (count($errors) > 0) {
-                echo "error";
-        } else {
+        if (!($validate->isErrorPresent())) {
+                        
             session_start();
             $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
@@ -68,7 +60,7 @@ require 'core/database.php';
                 ':password' => $password_hash, 
                 ':gender' => $gender
             ]);
-            echo "top";
+            
             if ($result) {
                 echo 'Du hast dich erfolgreich angemeldet <a href="login.php">Zum login</a>';
             } else {
