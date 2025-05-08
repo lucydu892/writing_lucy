@@ -19,11 +19,11 @@ require "models/home_model.php";
                 <div class="dropdownEditor" id="dropdownEditText">
                     <label for="bgColor">Hintergrundfarbe:</label>
                     <br>
-                    <input id="bgColor" type="color" name="bgColor">
+                    <input id="bgColor" type="color" name="bgColor" value="#0d0b4e">
                     <br>
                     <label for="fontColor">Schriftfarbe:</label>
                     <br>
-                    <input id="fontColor" type="color" name="fontColor">
+                    <input id="fontColor" type="color" name="fontColor" value="#FFFFFF">
                     <br>
                     <label for="fontSize">Schriftgrösse:</label>
                     <br>
@@ -45,8 +45,8 @@ require "models/home_model.php";
                     </select>
                     <br>
                     <br>
-                    <label for="fontDeco">Textdekoration:</label>
-                    <!-- <br>
+                    <!--<label for="fontDeco">Textdekoration:</label>
+                     <br>
                     <select name="fontDeco" id="fontDeco">
                         <option value="1">Bitte wählen</option>
                         <option value="None">None</option>
@@ -60,13 +60,13 @@ require "models/home_model.php";
             <textarea name="text" id="text" cols="30" rows="6"></textarea>
             <br>
             <div>
-                <!-- <label for="imageLink">Image-URl:</label>
+                <label for="imageLink">Image-URl:</label>
                 <br>
-                <input type="text" name="imageLink" id="imageLink">  -->
+                <input type="text" name="imageLink" id="imageLink"> 
                 <br>
                 <label for="imageLocal">Bild hochladen:</label>
                 <br>
-                <input id="imageLocal" name="files[]" type="file" accept="image/png, image/gif, image/jpeg">
+                <input id="imageLocal" name="imageLocal" type="file" accept="image/png, image/gif, image/jpeg">
                 
             </div>
             <br>
@@ -102,7 +102,7 @@ require "models/home_model.php";
             <div id="jokeOutput" name="jokeOutput">Witz</div>
             <div id="textOutput"></div>
             <div id="imageOutput">
-                <ul id="dateiListe"></ul>
+                <!-- <ul id="dateiListe"></ul> -->
             </div>
         </div>
     </form>

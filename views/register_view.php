@@ -7,7 +7,7 @@ require "models/register_model.php";
     <ul class="error-box">
       <?php
       foreach ($errors as $error) {
-        echo "<li>$error<\li>";
+        echo "<li>$error";
       }
       ?>
     </ul>

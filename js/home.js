@@ -10,6 +10,7 @@ window.onload = function () {
     //Reset 
     document.getElementById("resetBtn").addEventListener("click", resetPersonalization);
     //Bildbearbeitung
+    document.getElementById("imageLink").addEventListener("keyup", loadImage);
     document.getElementById("imageWidth").addEventListener("input", changeImageSize);
     document.getElementById("imageHeight").addEventListener("input", changeImageSize);
     //Ausgabe
@@ -73,9 +74,9 @@ function changeFontDeco(e) {
 
 function changeImageSize() {
     var width = document.getElementById("imageWidth").value;
-    imgElement.style.width = width + "px";
+    img.style.width = width + "px";
     var height = document.getElementById("imageHeight").value;
-    imgElement.style.height = height + "px";
+    img.style.height = height + "px";
 
 }
 async function importJoke() {
@@ -98,37 +99,54 @@ function dropdownImg() {
     document.getElementById("dropdownEditImg").classList.toggle("show");
 }
 
- document.addEventListener('DOMContentLoaded', function () {
-	document.getElementById('imageLocal').addEventListener('change', dateiauswahlGeändert, false);
- });
-let imgElement;
-function dateiauswahlGeändert(event) {
-	const liste = document.getElementById('dateiListe'); // Nur noch ein gemeinsames Element
-	liste.innerHTML = '';
 
-	for (const file of event.target.files) {
-		const listItem = document.createElement('div'); // Container für Dateiname + optionales Bild
-		listItem.style.marginBottom = '10px';
+let img;
+function loadImage() {
+    var input = document.getElementById("imageLink");
+    var imageUrl = input.value;
+    var container = document.getElementById("imageOutput");
 
-		/* Dateiname hinzufügen
-		const fileName = document.createElement('span');
-		fileName.textContent = file.name;
-		listItem.appendChild(fileName);
-        */
+    container.innerHTML = "";
 
-		// Wenn es ein Bild ist, Thumbnail hinzufügen
-		if (file.type.startsWith('image/')) {
-			const thumbnailURL = URL.createObjectURL(file);
-			imgElement = document.createElement('img');
-			imgElement.src = thumbnailURL;
-			imgElement.alt = file.name;
-			imgElement.style.width = '100px';
-            imgElement.style.height = '50px'; // Thumbnail etwas kleiner
+    img = document.createElement("img");
+    img.src = imageUrl;
+    img.alt = "Benutzerdefiniertes Bild";
+    img.style.width = "100px";
+    img.style.height = "50px";
+    container.appendChild(img);
 
-			imgElement.onload = () => URL.revokeObjectURL(imgElement.src);
-			listItem.appendChild(imgElement);
-		}
-
-		liste.appendChild(listItem);
-	}
 }
+// document.addEventListener('DOMContentLoaded', function () {
+//     document.getElementById('imageLocal').addEventListener('change', dateiauswahlGeändert, false);
+// });
+// let imgElement;
+// function dateiauswahlGeändert(event) {
+// 	const liste = document.getElementById('dateiListe'); // Nur noch ein gemeinsames Element
+// 	liste.innerHTML = '';
+
+// 	for (const file of event.target.files) {
+// 		const listItem = document.createElement('div'); // Container für Dateiname + optionales Bild
+//     listItem.style.marginBottom = '10px';
+
+// 		/* Dateiname hinzufügen
+// 		const fileName = document.createElement('span');
+// 		fileName.textContent = file.name;
+// 		listItem.appendChild(fileName);
+//         */
+
+// 		// Wenn es ein Bild ist, Thumbnail hinzufügen
+//     if (file.type.startsWith('image/')) {
+//         const thumbnailURL = URL.createObjectURL(file);
+//         imgElement = document.createElement('img');
+//         imgElement.src = thumbnailURL;
+//         imgElement.alt = file.name;
+//         imgElement.style.width = '100px';
+//             imgElement.style.height = '50px'; // Thumbnail etwas kleiner
+
+// 			imgElement.onload = () => URL.revokeObjectURL(imgElement.src);
+//         listItem.appendChild(imgElement);
+//     }
+
+//     liste.appendChild(listItem);
+// }
+// }
