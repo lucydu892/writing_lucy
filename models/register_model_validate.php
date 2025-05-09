@@ -38,7 +38,7 @@ class ValidateRegister
     }
     public function validateCheckbox($checkbox)
     {
-        if (isset($checkbox)) {
+        if (!isset($checkbox)) {
             array_push($this->errors, "Bitte die Allgemeinen Geschäftsbedingungen annehmen.");
         }
     }
@@ -75,5 +75,9 @@ class ValidateRegister
             return false;
         }
         return true;
+    }
+    public function userAlreadyExists()
+    {
+        array_push($this->errors, "Dieser Benutzername existiert bereits.");
     }
 }
