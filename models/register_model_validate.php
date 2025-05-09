@@ -1,6 +1,7 @@
 <?php
 class ValidateRegister
-{
+{  
+
     private $errors = [];
     public function validateFirstName($firstName)
     {
@@ -37,18 +38,42 @@ class ValidateRegister
     }
     public function validateCheckbox($checkbox)
     {
-        if ($checkbox == 0) {
+        if (isset($checkbox)) {
             array_push($this->errors, "Bitte die Allgemeinen Geschäftsbedingungen annehmen.");
         }
     }
-    public function getErrors() {
+    public function validateGender($gender)
+    {
+        if ($gender === "gender") {
+            array_push($this->errors, "Bitte ein Geschlecht auswählen.");
+        }
+    }
+    public function getErrors()
+    {
         return $this->errors;
     }
-    public function setErrors($errors) {
+    public function setErrors($errors)
+    {
         $this->errors = $errors;
     }
-
-    public function isErrorPresent() {
+  
+    public function isErrorPresent()
+    {
         return count($this->errors) > 0;
+    }
+    public function validateUser($registerUser)
+    {
+    
+        $this->validateFirstName($registerUser->getFirstName());
+        $this->validateLastName($registerUser->getLastName());
+        $this->validateEmail($registerUser->getEmail());
+        $this->validateUserName($registerUser->getUserName());
+        $this->validatePassword($registerUser->getPassword());
+        $this->validateCheckbox($registerUser->getCheckbox());
+        $this->validateGender($registerUser->getGender());
+        if (count($this->errors) > 0) {
+            return false;
+        }
+        return true;
     }
 }

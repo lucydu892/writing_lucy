@@ -16,19 +16,19 @@ require "models/register_model.php";
     <form class="row g-3" method="post" novalidate>
       <div class="col-md-6">
         <label for="firstName" class="form-label">Vorname</label>
-        <input type="text" class="form-control" id="firstName" name="firstName" required value="<?= $firstName ?>">
+        <input type="text" class="form-control" id="firstName" name="firstName" required>
       </div>
       <div class="col-md-6">
         <label for="lastName" class="form-label">Nachname</label>
-        <input type="text" class="form-control" id="lastName" name="lastName" required value="<?= $lastName ?>">
+        <input type="text" class="form-control" id="lastName" name="lastName" required>
       </div>
       <div class="col-6">
         <label for="email" class="form-label">E-Mail</label>
-        <input type="email" class="form-control" id="email" name="email" required value="<?= $email ?>">
+        <input type="email" class="form-control" id="email" name="email" required>
       </div>
       <div class="col-6">
         <label for="userName" class="form-label">Benutzername</label>
-        <input type="text" class="form-control" id="userName" name="userName" required value="<?= $userName ?>">
+        <input type="text" class="form-control" id="userName" name="userName" required>
       </div>
       <div class="col-6">
         <label for="password" class="form-label">Password</label>
@@ -44,7 +44,7 @@ require "models/register_model.php";
       </div>
       <div class="col-6">
         <select class="form-select" aria-label="Default select example" required id="gender" name="gender">
-          <option selected>Geschlecht</option>
+          <option value="gender">Geschlecht</option>
           <option value="1">Cis Frau</option>
           <option value="2">Cis Mann</option>
           <option value="3">Diverse</option>

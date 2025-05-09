@@ -1,0 +1,56 @@
+<?php
+
+class RegisterUser
+{
+    private $firstName;
+    private $lastName;
+    private $email;
+    private $userName;
+    private $password;
+    private $checkbox;
+    private $gender;
+
+    public function __construct($firstName, $lastName, $email, $userName, $password, $checkbox, $gender)
+    {
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
+        $this->email = $email;
+        $this->userName = $userName;
+        $this->password = $password;
+        $this->checkbox = $checkbox;
+        $this->gender = $gender;
+    }
+
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    public function getUserName()
+    {
+        return $this->userName;
+    }
+
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    public function getCheckbox()
+    {
+        return $this->checkbox;
+    }
+    public function getGender()
+    {
+        return $this->gender;
+    }
+}
