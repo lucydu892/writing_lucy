@@ -1,69 +1,80 @@
 <?php
 class ValidateRegister
 {  
-
+    private $fieldErrors = [];
     private $errors = [];
+
     public function validateFirstName($firstName)
     {
         if ($firstName === '') {
-            array_push($this->errors, "Bitte dein Vornamen eingeben.");
+            $this->fieldErrors['firstName'] = "Bitte dein Vornamen eingeben.";
         }
     }
+    
     public function validateLastName($lastName)
     {
         if ($lastName === '') {
-            array_push($this->errors, "Bitte dein Nachname eingeben.");
+            $this->fieldErrors['lastName'] = "Bitte dein Nachnamen eingeben.";
         }
     }
     public function validateEmail($email)
     {
         if ($email === '') {
-            array_push($this->errors, "Bitte deine E-Mail eingeben.");
+            $this->fieldErrors['email'] = "Bitte deine E-Mail eingeben.";
         } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            array_push($this->errors, "Bitte eine gültige E-Mail eingeben");
+            $this->fieldErrors['email'] = "Bitte eine gültige E-Mail eingeben";
         }
     }
 
     public function validateUserName($userName)
     {
         if ($userName === '') {
-            array_push($this->errors, "Bitte ein Benutzernamen eingeben.");
+            $this->fieldErrors['userName'] = "Bitte ein Benutzernamen eingeben.";
         }
     }
     public function validatePassword($password)
     {
         if ($password === '') {
-            array_push($this->errors, "Bitte ein Password eingeben.");
+            $this->fieldErrors['password'] = "Bitte ein Passwort eingeben.";
         }
     }
     public function validateCheckbox($checkbox)
     {
-        if (!isset($checkbox)) {
-            array_push($this->errors, "Bitte die Allgemeinen Geschäftsbedingungen annehmen.");
+        if (!$checkbox) {
+            $this->fieldErrors['agb'] = "Bitte die Allgemeinen Geschäftsbedingungen annehmen.";
         }
     }
     public function validateGender($gender)
     {
-        if ($gender === "gender") {
-            array_push($this->errors, "Bitte ein Geschlecht auswählen.");
+        if ($gender === "gender" || $gender === "") {
+            $this->fieldErrors['gender'] = "Bitte ein Geschlecht auswählen.";
         }
     }
+
+    public function getFieldError($field)
+    {
+        return $this->fieldErrors[$field] ?? '';
+    }
+
     public function getErrors()
     {
-        return $this->errors;
+        // For compatibility, return all field errors as a flat array
+        return array_values($this->fieldErrors);
     }
+
     public function setErrors($errors)
     {
-        $this->errors = $errors;
+        $this->fieldErrors = $errors;
     }
   
     public function isErrorPresent()
     {
-        return count($this->errors) > 0;
+        return count($this->fieldErrors) > 0;
     }
+
     public function validateUser($registerUser)
     {
-    
+        $this->fieldErrors = []; // Reset errors before validation
         $this->validateFirstName($registerUser->getFirstName());
         $this->validateLastName($registerUser->getLastName());
         $this->validateEmail($registerUser->getEmail());
@@ -71,13 +82,11 @@ class ValidateRegister
         $this->validatePassword($registerUser->getPassword());
         $this->validateCheckbox($registerUser->getCheckbox());
         $this->validateGender($registerUser->getGender());
-        if (count($this->errors) > 0) {
-            return false;
-        }
-        return true;
+        return count($this->fieldErrors) === 0;
     }
+
     public function userAlreadyExists()
     {
-        array_push($this->errors, "Dieser Benutzername existiert bereits.");
+        $this->fieldErrors['userName'] = "Dieser Benutzername existiert bereits.";
     }
 }
