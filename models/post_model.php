@@ -1,7 +1,8 @@
 <?php
-require 'core/database.php';
+require 'core/dbService.php';
 
-$dbCon = connectToDatabase();
+$dbService = new DbService();
+$dbCon = $dbService->connectToDatabase();
 if(isset($_SESSION['userId'])){
     
     $userId = $_SESSION['userName'];

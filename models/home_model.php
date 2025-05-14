@@ -1,36 +1,27 @@
 <?php
-    require "core/database.php";
-    $dbCon = connectToDatabase();
-    if(isset($_SESSION['userId'])) {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
- 
-            $bgColor = $_POST['bgColor'] ?? '';
-            $fontColor = $_POST['fontColor'] ?? '';
-            $fontSize = $_POST['fontSize'] ?? '';
-            $fontFamily = $_POST['fontFamily'] ?? '';
-            $fontDeco = $_POST['fontDeco'] ?? '';
-            $inputText = $_POST['text'] ?? '';
-            $image = $_POST['imageLink'] ?? '';
-            $imageWidth =$_POST['imageWidth'] ?? '';
-            $imageHeight =$_POST['imageHeight'] ?? '';
-            $time = date("Y-m-d H:i:s");
-            $joke = $_POST['jokeOutput'] ?? '';
-            $userId = ($_SESSION['userName']);
- 
-            $stmt = $dbCon->prepare('INSERT INTO document (userId, text, image ,bgColor, fontColor, fontSize, fontFamily, fontDeco, imageWidth, imageHeight, time, joke) 
-            VALUES (:userId, :text, :image, :bgColor, :fontColor, :fontSize, :fontFamily, :fontDeco, :imageWidth, :imageHeight, :time, :joke)');
-            $stmt->bindParam(':userId', $userId);
-            $stmt->bindParam(':text', $inputText);
-            $stmt->bindParam(':image', $image);
-            $stmt->bindParam(':bgColor', $bgColor);
-            $stmt->bindParam(':fontColor', $fontColor);
-            $stmt->bindParam(':fontSize', $fontSize);
-            $stmt->bindParam(':fontFamily', $fontFamily);
-            $stmt->bindParam(':fontDeco', $fontDeco);
-            $stmt->bindParam(':imageWidth', $imageWidth);
-            $stmt->bindParam(':imageHeight', $imageHeight);
-            $stmt->bindParam(':time', $time);
-            $stmt->bindParam(':joke', $joke);
-            $stmt->execute();
-        }
+require 'core/dbService.php';
+require 'C:\xampp\htdocs\writing_lucy\models\home_model_Post.php';
+
+
+if (isset($_SESSION['userId'])) {
+    $Post = new Post(
+        $_POST['bgColor'] ?? '',
+        $_POST['fontColor'] ?? '',
+        $_POST['fontSize'] ?? '',
+        $_POST['fontFamily'] ?? '',
+        $_POST['fontDeco'] ?? '',
+        $_POST['text'] ?? '',
+        $_POST['imageLink'] ?? '',
+        $_POST['imageWidth'] ?? '',
+        $_POST['imageHeight'] ?? '',
+        date("Y-m-d H:i:s"),
+        $_POST['jokeOutput'] ?? '',
+        ($_SESSION['userName'])
+    );
+    $dbService = new DbService();
+    $dbCon = $dbService->connectToDatabase();
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        $dbService->insertPost($Post);
     }
+}

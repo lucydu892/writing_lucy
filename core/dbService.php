@@ -17,6 +17,7 @@ class DbService{
         ]);
         return $this->pdo;
     }
+    //Register
     public function insertRegisterUser($registerUser){
 
         $password_hash = password_hash($registerUser->getPassword(), PASSWORD_DEFAULT);
@@ -48,5 +49,36 @@ class DbService{
         $userName = $prep->fetchAll();
         // Check if the username already exists
         return count($userName) > 0;
+    }
+    //Home
+    public function insertPost($Post){
+        $userId     = $Post->getUserId();
+        $text       = $Post->getInputText();
+        $image      = $Post->getImage();
+        $bgColor    = $Post->getBgColor();
+        $fontColor  = $Post->getFontColor();
+        $fontSize   = $Post->getFontSize();
+        $fontFamily = $Post->getFontFamily();
+        $fontDeco   = $Post->getFontDeco();
+        $imageWidth = $Post->getImageWidth();
+        $imageHeight= $Post->getImageHeight();
+        $time       = $Post->getTime();
+        $joke       = $Post->getJoke();
+
+        $stmt = $this->pdo->prepare('INSERT INTO document (userId, text, image ,bgColor, fontColor, fontSize, fontFamily, fontDeco, imageWidth, imageHeight, time, joke) 
+            VALUES (:userId, :text, :image, :bgColor, :fontColor, :fontSize, :fontFamily, :fontDeco, :imageWidth, :imageHeight, :time, :joke)');
+        $stmt->bindParam(':userId', $userId);
+        $stmt->bindParam(':text', $text);
+        $stmt->bindParam(':image', $image);
+        $stmt->bindParam(':bgColor', $bgColor);
+        $stmt->bindParam(':fontColor', $fontColor);
+        $stmt->bindParam(':fontSize', $fontSize);
+        $stmt->bindParam(':fontFamily', $fontFamily);
+        $stmt->bindParam(':fontDeco', $fontDeco);
+        $stmt->bindParam(':imageWidth', $imageWidth);
+        $stmt->bindParam(':imageHeight', $imageHeight);
+        $stmt->bindParam(':time', $time);
+        $stmt->bindParam(':joke', $joke);
+        $stmt->execute();
     }
 }

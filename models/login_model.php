@@ -1,9 +1,10 @@
 <?php
- require "core/database.php";
+ require 'core/dbService.php';
     $errors = [];
     $userName = $_POST['userName'] ?? '';
     $password = $_POST['password'] ?? '';
-    $dbCon = connectToDatabase();
+    $dbService = new DbService();
+    $dbCon = $dbService->connectToDatabase();
     $isUserNameExist = false;
     
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
