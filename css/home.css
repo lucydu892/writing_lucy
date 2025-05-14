@@ -1,6 +1,7 @@
+@import url(colors.css);
 main.home-main {
-  background-color: rgb(12, 12, 58);
-  color: white;
+  background-color: var(--primary-background-color);
+  color: var(--primary-text-color);
   margin: 0px;
 }
 .content {
@@ -9,7 +10,7 @@ main.home-main {
   
 }
 .dropdownEditPara{
-  color: rgb(29, 205, 159);
+  color: var(--dropdown-text-color);
   font-size: 20px;
 }
 .dropdownEditPara:hover, .dropdownEditPara:focus {
@@ -21,7 +22,7 @@ main.home-main {
 }
 .dropdownEditor {
   display: none;
-  background-color: rgb(22, 153, 118);
+  background-color: var(--dropdown-background-color);
   border: none;
   border-radius: 5px;
   z-index: 1;
@@ -32,7 +33,7 @@ main.home-main {
   display: block;
 }
 .dropdownEditor p:hover {
-  background-color: #ddd;
+  background-color: var(--driopdown-hover-affect);
 }
 .show {display:block;}
 .content-Editor {
@@ -42,13 +43,13 @@ main.home-main {
   margin: 5px;
   margin-left: 30px;
   input, select{
-      background-color: #ddddddb7;
+      background-color: var(--input-field-background-color);
       border-radius: 3px;
       width: 150px;
       height: 34px;
     }
   textarea{
-      background-color: #ddddddb7;
+      background-color: var(--input-field-background-color);
       width: 200px;
       height: 100px;
     }
@@ -61,8 +62,8 @@ main.home-main {
 .content-Output{
   display: flex;
   flex-direction: column;
-  background-color: rgba(17, 0, 255, 0.1);
-  border: black 2px solid;
+  background-color: var(--output-background-color);
+  border: var(--colors-black) 2px solid;
   padding: 10px;
   margin: 5px;
   }

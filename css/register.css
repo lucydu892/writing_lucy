@@ -1,3 +1,4 @@
+@import url(colors.css);
 body {
     display: flex;
 }
@@ -13,6 +14,6 @@ button {
     height: 30px;
     border-radius: 5px;
     border: none;
-    background-color: rgb(33, 33, 231);
-    color: white;
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
 }

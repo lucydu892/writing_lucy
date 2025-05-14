@@ -1,8 +1,9 @@
+@import url(colors.css);
 body {
     display: flex;
     flex-direction: column;
-    background-color: rgb(12, 12, 58);
-    color: white;
+    background-color: var(--primary-background-color);
+    color: var(--primary-text-color);
 }
 .postContent {
     margin-left: 50px;
@@ -10,6 +11,10 @@ body {
 }
 .card{
     display: flex;
-    border: 2px rgb(0, 0, 0) solid;
+    border: 2px var(--colors-black) solid;
     justify-content: space-between;
+}
+.card-footer button {
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
 }
