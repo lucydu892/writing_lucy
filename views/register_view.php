@@ -2,6 +2,11 @@
 require "models/register_model.php";
 ?>
 <main>
+  <?php
+  if (strpos($_SERVER['REQUEST_URI'], 'register') !== false): ?>
+    <link rel="stylesheet" href="css/login-register.css">
+  <?php endif; ?>
+
   <h1>Registrieren</h1>
   <?php if ($validate->getErrors()) { ?>
     <ul class="error-box">
@@ -50,10 +55,11 @@ require "models/register_model.php";
           <option value="3">Diverse</option>
         </select>
       </div>
+      <p class="has-text-centered">Du hast bereits ein Konto?<a href="login"> Login</a></p>
       <div class="col-12">
         <button type="submit">Registrieren</button>
       </div>
-      <p class="has-text-centered">Du hast dich bereits ein Konto?<a href="login">Login</a></p>
+
     </form>
   </div>
 </main>

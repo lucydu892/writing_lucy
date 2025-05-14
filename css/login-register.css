@@ -2,10 +2,6 @@
 body {
     display: flex;
 }
-.register {
-
-    margin-right: 50px;
-}
 form a {
     text-decoration: none;
 }
@@ -15,4 +11,10 @@ button {
     border: none;
     background-color: var(--button-background-color);
     color: var(--button-text-color);
+}
+@media screen and (min-width: 480px) {
+    main{
+        margin-left: 10%;
+        margin-right: 10%;
+    }
 }

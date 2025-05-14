@@ -5,6 +5,7 @@
     $password = $_POST['password'] ?? '';
     $dbService = new DbService();
     $dbCon = $dbService->connectToDatabase();
+    
     $isUserNameExist = false;
     
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {

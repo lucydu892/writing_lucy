@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="css/layout.css">
     <link rel="javascript" href="js/home.js">
     <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/register.css">
     <link rel="stylesheet" href="css/post.css">
     <link rel="stylesheet" href="css/settings.css">
 </head>
