@@ -1,8 +1,8 @@
 <?php
 
 require 'core/dbService.php';
-require 'C:\xampp\htdocs\writing_lucy\models\login_model_loggedIn.php';
-require 'C:\xampp\htdocs\writing_lucy\models\login_model_validate.php';
+require 'models\login_model_loggedIn.php';
+require 'models\login_model_validate.php';
 
 $errors = [];
 $loggedInUser = new LoggedInUser(

@@ -1,8 +1,8 @@
 <?php
 
 require 'core/dbService.php';
-require 'C:\xampp\htdocs\writing_lucy\models\register_model_RegisterUser.php';
-require 'C:\xampp\htdocs\writing_lucy\models\register_model_validate.php';
+require 'models\register_model_RegisterUser.php';
+require 'models\register_model_validate.php';
 
 $errors = [];
 $registerUser = new RegisterUser(

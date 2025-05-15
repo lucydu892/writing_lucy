@@ -1,6 +1,6 @@
 <?php
 require 'core/dbService.php';
-require 'C:\xampp\htdocs\writing_lucy\models\home_model_Post.php';
+require 'models\home_model_Post.php';
 
 
 if (isset($_SESSION['userId'])) {
