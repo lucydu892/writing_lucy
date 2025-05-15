@@ -8,19 +8,18 @@ body {
 }
 
 header {
+  position: sticky;
   justify-self: start;
   width: 100%;
 }
 
 h1 {
-  font-size: 20px;
+  font-size: 30px;
   justify-self: start;
   text-decoration: none;
   color: var(--header-color);
 }
-main {
-  margin: 20px;
-}
+
 footer p {
   position: fixed;
   left: 0;
