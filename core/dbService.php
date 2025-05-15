@@ -50,6 +50,20 @@ class DbService{
         // Check if the username already exists
         return count($userName) > 0;
     }
+    //Login
+    public function checkLogin($loggedInUser){
+        $prep = $this->pdo->prepare("SELECT * FROM user WHERE userName = :userName");
+        $prep->bindValue(':userName', $loggedInUser->getUserName(),);
+        $prep->execute();
+        $user = $prep->fetch();
+        if ($user !== false && password_verify($loggedInUser->getPassword(), $user['password'])) {
+            $_SESSION['userId'] = $user['id'];
+            $_SESSION['userName'] = $user['userName'];
+            return true;
+        } else {
+            return false;
+        }
+    }
     //Home
     public function insertPost($Post){
         $userId     = $Post->getUserId();

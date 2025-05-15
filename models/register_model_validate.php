@@ -2,7 +2,6 @@
 class ValidateRegister
 {  
     private $fieldErrors = [];
-    private $errors = [];
 
     public function validateFirstName($firstName)
     {
@@ -55,18 +54,6 @@ class ValidateRegister
     {
         return $this->fieldErrors[$field] ?? '';
     }
-
-    public function getErrors()
-    {
-        // For compatibility, return all field errors as a flat array
-        return array_values($this->fieldErrors);
-    }
-
-    public function setErrors($errors)
-    {
-        $this->fieldErrors = $errors;
-    }
-  
     public function isErrorPresent()
     {
         return count($this->fieldErrors) > 0;

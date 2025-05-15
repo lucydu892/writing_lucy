@@ -1,33 +1,28 @@
 <?php
- require 'core/dbService.php';
-    $errors = [];
-    $userName = $_POST['userName'] ?? '';
-    $password = $_POST['password'] ?? '';
-    $dbService = new DbService();
-    $dbCon = $dbService->connectToDatabase();
-    
-    $isUserNameExist = false;
-    
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-        if ($userName === '') {
-            array_push($errors, "Bitte geben sie ihren Benutzernamen ein.");
-        }
-        if ($password === '') {
-            array_push($errors, "Bitte geben sie ihr Passwort ein.");
-        }
+require 'core/dbService.php';
+require 'C:\xampp\htdocs\writing_lucy\models\login_model_loggedIn.php';
+require 'C:\xampp\htdocs\writing_lucy\models\login_model_validate.php';
 
-        $prep = $dbCon->prepare("select * from user where userName = :userName");
-        $prep-> execute([':userName' => $userName]);
-        $user = $prep -> fetch();
+$errors = [];
+$loggedInUser = new LoggedInUser(
+    $_POST['userName'] ?? '',
+    $_POST['password'] ?? '',
+);
+
+$validateLogin = new ValidateLogin();
+$dbService = new DbService();
+$dbCon = $dbService->connectToDatabase();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    if ($validateLogin->validateLogin($loggedInUser)) {
+        if ($dbService->checkLogin($loggedInUser)) {
         
-        if ($user !== false && password_verify($password, $user['password'])) {
-            $_SESSION['userId'] = $user['id'];
-            $_SESSION['userName'] = $user['userName'];
             header("refresh:2;url=home");
-            die ('Login erfolgreich.');
-            
-        }else {
-            array_push($errors, "Benutzername oder Passwort ist falsch.");
+            die('Login erfolgreich.');
+        } else {
+            $validateLogin->userExists();
         }
     }
+}
