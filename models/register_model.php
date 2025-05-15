@@ -6,13 +6,10 @@ require 'C:\xampp\htdocs\writing_lucy\models\register_model_validate.php';
 
 $errors = [];
 $registerUser = new RegisterUser(
-    $_POST['firstName'] ?? '',
-    $_POST['lastName'] ?? '',
-    $_POST['email'] ?? '',
     $_POST['userName'] ?? '',
+    $_POST['email'] ?? '',
     $_POST['password'] ?? '',
     $_POST['agb'] ?? '',
-    $_POST['gender'] ?? '',
 );
 
 $validate = new ValidateRegister($registerUser);

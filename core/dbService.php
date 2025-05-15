@@ -1,15 +1,19 @@
 <?php
 
-class DbService{
+class DbService
+{
     private $pdo;
 
-    public function setPdo($pdo){
+    public function setPdo($pdo)
+    {
         $this->pdo = $pdo;
     }
-    public function getPdo(){
+    public function getPdo()
+    {
         return $this->pdo;
     }
-    function connectToDatabase(){
+    function connectToDatabase()
+    {
 
         $this->pdo = new PDO('mysql:host=mysql2.webland.ch;dbname=d041e_writing_lucy', 'd041e_writing_lucy', 'WritingLucy_2024', [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
@@ -18,21 +22,19 @@ class DbService{
         return $this->pdo;
     }
     //Register
-    public function insertRegisterUser($registerUser){
+    public function insertRegisterUser($registerUser)
+    {
 
         $password_hash = password_hash($registerUser->getPassword(), PASSWORD_DEFAULT);
-    
+
         $prep = $this->pdo->prepare(
-            "INSERT INTO `user` (firstName, lastName, email, userName, password, gender) 
-                VALUES(:firstName, :lastName, :email, :userName, :password, :gender)"
+            "INSERT INTO `user` (userName, email, password) 
+                VALUES(:userName, :email, :password)"
         );
         $result = $prep->execute([
-            ':firstName' => $registerUser->getFirstName(),
-            ':lastName' => $registerUser->getLastName(),
-            ':email' => $registerUser->getEmail(),
             ':userName' => $registerUser->getUserName(),
+            ':email' => $registerUser->getEmail(),
             ':password' => $password_hash,
-            ':gender' => $registerUser->getGender(),
         ]);
         if ($result) {
             echo 'Du hast dich erfolgreich angemeldet <a href="login">Zum login</a>';
@@ -40,7 +42,8 @@ class DbService{
             echo "Unfortunately an error occurred while saving.";
         }
     }
-    public function checkUserNameExists($registerUser){
+    public function checkUserNameExists($registerUser)
+    {
 
 
         $prep = $this->pdo->prepare('SELECT userName FROM user WHERE userName = :userName');
@@ -51,7 +54,8 @@ class DbService{
         return count($userName) > 0;
     }
     //Login
-    public function checkLogin($loggedInUser){
+    public function checkLogin($loggedInUser)
+    {
         $prep = $this->pdo->prepare("SELECT * FROM user WHERE userName = :userName");
         $prep->bindValue(':userName', $loggedInUser->getUserName(),);
         $prep->execute();
@@ -65,7 +69,8 @@ class DbService{
         }
     }
     //Home
-    public function insertPost($Post){
+    public function insertPost($Post)
+    {
         $userId     = $Post->getUserId();
         $text       = $Post->getInputText();
         $image      = $Post->getImage();
@@ -75,7 +80,7 @@ class DbService{
         $fontFamily = $Post->getFontFamily();
         $fontDeco   = $Post->getFontDeco();
         $imageWidth = $Post->getImageWidth();
-        $imageHeight= $Post->getImageHeight();
+        $imageHeight = $Post->getImageHeight();
         $time       = $Post->getTime();
         $joke       = $Post->getJoke();
 
