@@ -7,14 +7,15 @@ require "models/register_model.php";
  * @param object $validate
  * @return string
  */
-function renderFieldError($field, $validate) {
-    $error = $validate->getFieldError($field);
-    if (!empty($error)) {
-        return '<div class="invalid-feedback" style="display:block;color:#dc3545;">'
-            . htmlspecialchars($error) .
-            '</div>';
-    }
-    return '';
+function renderFieldError($field, $validate)
+{
+  $error = $validate->getFieldError($field);
+  if (!empty($error)) {
+    return '<div class="invalid-feedback" style="display:block;color:#dc3545;">'
+      . htmlspecialchars($error) .
+      '</div>';
+  }
+  return '';
 }
 ?>
 <main>
@@ -23,24 +24,25 @@ function renderFieldError($field, $validate) {
   <?php endif; ?>
 
   <h1>Registrieren</h1>
+  <br>
   <div class="register">
     <form class="row g-3" method="post" novalidate>
-      <div class="col-9">
+      <div class="col-12">
         <label for="userName" class="form-label">Benutzername</label>
         <input type="text" class="form-control" id="userName" name="userName" required value="<?= htmlspecialchars($_POST['userName'] ?? '') ?>">
         <?= renderFieldError('userName', $validate) ?>
       </div>
-      <div class="col-9">
+      <div class="col-12">
         <label for="email" class="form-label">E-Mail</label>
         <input type="email" class="form-control" id="email" name="email" required value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
         <?= renderFieldError('email', $validate) ?>
       </div>
-      <div class="col-9">
+      <div class="col-12">
         <label for="password" class="form-label">Password</label>
         <input type="password" class="form-control" id="password" name="password" required>
         <?= renderFieldError('password', $validate) ?>
       </div>
-      <div class="col-9">
+      <div class="col-12">
         <div class="form-check">
           <input class="form-check-input" type="checkbox" id="agb" name="agb" required <?= isset($_POST['agb']) ? 'checked' : '' ?>>
           <label class="form-check-label" for="agb">
@@ -49,11 +51,8 @@ function renderFieldError($field, $validate) {
           <?= renderFieldError('agb', $validate) ?>
         </div>
       </div>
-
       <p class="has-text-centered">Du hast bereits ein Konto?<a href="login"> Login</a></p>
-      <div class="col-9">
-        <button type="submit">Registrieren</button>
-      </div>
+      <button type="submit">Registrieren</button>
     </form>
   </div>
 </main>

@@ -1,25 +1,32 @@
 @import url(colors.css);
+
 main.home-main {
   background-color: var(--primary-background-color);
   color: var(--primary-text-color);
   margin: 0px;
 }
+
 .content {
   display: flex;
   flex-direction: row;
-  
+
 }
-.dropdownEditPara{
+
+.dropdownEditPara {
   color: var(--dropdown-text-color);
   font-size: 20px;
 }
-.dropdownEditPara:hover, .dropdownEditPara:focus {
+
+.dropdownEditPara:hover,
+.dropdownEditPara:focus {
   font-size: 25px;
 }
-.dropdown{
+
+.dropdown {
   position: relative;
   display: inline-block;
 }
+
 .dropdownEditor {
   display: none;
   background-color: var(--dropdown-background-color);
@@ -27,71 +34,89 @@ main.home-main {
   border-radius: 5px;
   z-index: 1;
 }
+
 .dropdownEditor input {
   color: black;
   text-decoration: none;
   display: block;
 }
+
 .dropdownEditor p:hover {
   background-color: var(--driopdown-hover-affect);
 }
-.show {display:block;}
+
+.show {
+  display: block;
+}
+
 .content-Editor {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   margin: 5px;
   margin-left: 30px;
-  input, select{
-      background-color: var(--input-field-background-color);
-      border-radius: 3px;
-      width: 150px;
-      height: 34px;
-    }
-  textarea{
-      background-color: var(--input-field-background-color);
-      width: 200px;
-      height: 100px;
-    }
-  #saveBtn {
-      width: 250px;
-      height: 25px;
-    }
-  
+
+  input,
+  select {
+    background-color: var(--input-field-background-color);
+    border-radius: 3px;
+    width: 150px;
+    height: 34px;
+  }
+
+  textarea {
+    background-color: var(--input-field-background-color);
+    width: 200px;
+    height: 100px;
+  }
+
 }
-.content-Output{
+
+.resetBtn button {
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--button-background-color);
+  color: var(--button-text-color);
+}
+
+.content-Output {
   display: flex;
   flex-direction: column;
   background-color: var(--output-background-color);
   border: var(--colors-black) 2px solid;
   padding: 10px;
   margin: 5px;
-  }
+}
 
 @media screen and (max-width: 480px) {
   .content {
     display: flex;
     flex-direction: column;
   }
+
   .content-Output {
     margin: 0px;
     padding: 0px;
   }
-  
+
 }
+
 @media screen and (max-width: 800px) {
   .content-Output {
     margin: 0px;
     padding: 0px;
     width: 100rem;
   }
-  
+
 }
+
 @media screen and (min-width: 1000px) {
   .content-Output {
     margin: 0px;
     padding: 0px;
     width: 100rem;
   }
-  
+
 }

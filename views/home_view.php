@@ -2,6 +2,9 @@
 require "models/home_model.php";
 ?>
 <main class="home-main">
+    <?php if (strpos($_SERVER['REQUEST_URI'], 'home') !== false): ?>
+    <link rel="stylesheet" href="css/home.css">
+  <?php endif; ?>
     <header>
         <h1>Bearbeitung</h1>
     </header>
@@ -83,9 +86,9 @@ require "models/home_model.php";
                 </div>
             </div>
 
-            <div>
+            <div class="resetBtn">
                 <br>
-                <button class="resetBtn" id="resetBtn" type="button">Reset</button>
+                <button id="resetBtn" type="button">Reset</button>
             </div>
             <br>
             <?php
