@@ -17,7 +17,9 @@ function renderFieldError($field, $validate)
   }
   return '';
 }
+
 ?>
+
 <main>
   <?php if (strpos($_SERVER['REQUEST_URI'], 'register') !== false): ?>
     <link rel="stylesheet" href="css/login-register.css">
@@ -38,7 +40,7 @@ function renderFieldError($field, $validate)
           <?= renderFieldError('email', $validate) ?>
         </div>
         <div class="col-12">
-          <label for="password" class="form-label">Password</label>
+          <label for="password" class="form-label">Passwort</label>
           <input type="password" class="form-control" id="password" name="password" required>
           <?= renderFieldError('password', $validate) ?>
         </div>

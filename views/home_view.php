@@ -1,5 +1,6 @@
 <?php
 require "models/home_model.php";
+
 ?>
 <main class="home-main">
     <?php if (strpos($_SERVER['REQUEST_URI'], 'home') !== false): ?>
