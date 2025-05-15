@@ -17,4 +17,6 @@ body {
 .card-footer button {
     background-color: var(--button-background-color);
     color: var(--button-text-color);
+    border: none;
+    border-radius: 5px;
 }

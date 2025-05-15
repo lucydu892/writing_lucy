@@ -3,6 +3,8 @@ body {
   display: flex;
   justify-content: space-around;
   flex-direction: column;
+  background-color: var(--primary-background-color);
+  color: var(--primary-text-color);
 }
 
 header {

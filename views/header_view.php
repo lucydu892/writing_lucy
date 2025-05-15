@@ -1,3 +1,7 @@
+<?php 
+  if (basename($_SERVER['PHP_SELF']) === 'index.php'): ?> 
+    <link rel="stylesheet" href="css/layout.css">
+<?php endif; ?>
 <header>
     <nav class="navbar navbar-expand-sm bg-body-tertiary">
         <div class="container-fluid">

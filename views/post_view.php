@@ -4,16 +4,19 @@ $userLogedIn = isset($_SESSION['userId']);
 ?>
 
 <main class="postContent">
-<h1>Willkommen <?= $_SESSION['userName']; ?></h1>   
+    <?php if (strpos($_SERVER['REQUEST_URI'], 'post') !== false): ?>
+        <link rel="stylesheet" href="css/post.css">
+    <?php endif; ?>
+    <h1>Willkommen <?= $_SESSION['userName']; ?></h1>
     <div class="cards">
-        <?php foreach ($post as $index => $postOnDb):?>
+        <?php foreach ($post as $index => $postOnDb): ?>
             <?php
             $date = date('d.m.Y', strtotime($postOnDb["time"]));
-            $fileName = "Beitrag_". $date;
+            $fileName = "Beitrag_" . $date;
             ?>
             <div id="card<?= $index ?>" class="card">
                 <div class="card-header">
-                    <p>Am <?= $date?></p>
+                    <p>Am <?= $date ?></p>
                 </div>
                 <div class="card-body" style="background-color: <?= $postOnDb["bgColor"] ?>">
                     <div class="card-text">
