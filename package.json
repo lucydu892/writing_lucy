@@ -1,0 +1,22 @@
+{
+  "name": "writing_lucy",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucydu892/writing_lucy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucydu892/writing_lucy/issues"
+  },
+  "homepage": "https://github.com/lucydu892/writing_lucy#readme",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.18"
+  }
+}
