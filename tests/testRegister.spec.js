@@ -37,7 +37,60 @@ test('checkRegisterWithExistingUser', async ({ page }) => {
   await page.getByRole('button', { name: 'Registrieren' }).click();
   // Expect a title "to contain" a substring.
   await expect(page.getByText('Dieser Benutzername existiert bereits.')).toBeVisible();
-  });
+});
+
+test('checkEmailCorrect_1', async ({ page }) => {
+  await page.goto('http://localhost/writing_lucy/register');
+  await page.getByRole('heading', { name: 'Registrieren' }).isVisible();
+
+  await page.getByLabel('E-Mail').fill('testUser');
+  await page.getByRole('button', { name: 'Registrieren' }).click();
+  // Expect a title "to contain" a substring.
+  await expect(page.getByText('Bitte eine gültige E-Mail eingeben.')).toBeVisible();
+});
+
+test('checkEmailCorrect_2', async ({ page }) => {
+  await page.goto('http://localhost/writing_lucy/register');
+  await page.getByRole('heading', { name: 'Registrieren' }).isVisible();
+
+  await page.getByLabel('E-Mail').fill('testUser@');
+
+  const locator = page.getByText('Bitte eine gültige E-Mail eingeben.');
+  await page.getByRole('button', { name: 'Registrieren' }).click();
+  // Expect a title "to contain" a substring.
+  await expect(locator).toBeVisible();
+});
+
+test('checkEmailCorrect_3', async ({ page }) => {
+  await page.goto('http://localhost/writing_lucy/register');
+  await page.getByRole('heading', { name: 'Registrieren' }).isVisible();
+
+  await page.getByLabel('E-Mail').fill('@testUser');
+  await page.getByRole('button', { name: 'Registrieren' }).click();
+  // Expect a title "to contain" a substring.
+  await expect(page.getByText('Bitte eine gültige E-Mail eingeben.')).toBeVisible();
+});
+
+test('checkEmailCorrect_4', async ({ page }) => {
+  await page.goto('http://localhost/writing_lucy/register');
+  await page.getByRole('heading', { name: 'Registrieren' }).isVisible();
+
+  await page.getByLabel('E-Mail').fill('testUser@testing');
+  await page.getByRole('button', { name: 'Registrieren' }).click();
+  // Expect a title "to contain" a substring.
+  await expect(page.getByText('Bitte eine gültige E-Mail eingeben.')).toBeVisible();
+});
+
+test('checkEmailCorrect_5', async ({ page }) => {
+  await page.goto('http://localhost/writing_lucy/register');
+  await page.getByRole('heading', { name: 'Registrieren' }).isVisible();
+
+  await page.getByLabel('E-Mail').fill('testUser@testing.');
+  await page.getByRole('button', { name: 'Registrieren' }).click();
+  // Expect a title "to contain" a substring.
+  await expect(page.getByText('Bitte eine gültige E-Mail eingeben.')).toBeVisible();
+});
+
 
 test('gotoPageRegister', async ({ page }) => {
   await page.goto('http://localhost/writing_lucy/home');

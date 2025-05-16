@@ -11,7 +11,7 @@ class ValidateRegister {
         if ($email === '') {
             $this->fieldErrors['email'] = "Bitte deine E-Mail eingeben.";
         } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $this->fieldErrors['email'] = "Bitte eine gültige E-Mail eingeben";
+            $this->fieldErrors['email'] = "Bitte eine gültige E-Mail eingeben.";
         }
     }
     public function validatePassword($password) {
