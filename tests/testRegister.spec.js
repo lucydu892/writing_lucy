@@ -26,6 +26,18 @@ test('!checkRegister', async ({ page }) => {
 
 
 });
+test('checkRegisterWithExistingUser', async ({ page }) => {
+  await page.goto('http://localhost/writing_lucy/register');
+  await page.getByRole('heading', { name: 'Registrieren' }).isVisible();
+
+  await page.getByLabel('Benutzername').fill('TestUser');
+  await page.getByLabel('E-Mail').fill('testUser@testing.com');
+  await page.getByLabel('Passwort').fill('testPassword');
+  await page.getByLabel('Aktzeptier der Allgemeinen Geschäftsbedingungen').check();
+  await page.getByRole('button', { name: 'Registrieren' }).click();
+  // Expect a title "to contain" a substring.
+  await expect(page.getByText('Dieser Benutzername existiert bereits.')).toBeVisible();
+  });
 
 test('gotoPageRegister', async ({ page }) => {
   await page.goto('http://localhost/writing_lucy/home');
