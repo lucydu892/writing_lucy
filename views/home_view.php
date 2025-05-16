@@ -7,9 +7,11 @@ require "models/home_model.php";
     <link rel="stylesheet" href="css/home.css">
   <?php endif; ?>
     <header>
-        <h1>Bearbeitung</h1>
+        <h1>Writing Lucy</h1>
     </header>
-
+    <p>
+        Willkommen bei Writing Lucy! Hier kannst du deine Texte erstellen und sie mit verschiedenen Schriftarten, Farben und Hintergründen gestalten. Du kannst auch Bilder hinzufügen, um deine Texte noch ansprechender zu machen. Lass deiner Kreativität freien Lauf und teile deine Werke mit anderen!
+    </p>
     <audio autoplay>
         <source src="music\background_music_lofi.mp3" type="audio/mpeg">
         <p>If you are reading this, it is because your browser does not support the audio element.</p>
@@ -102,6 +104,7 @@ require "models/home_model.php";
 
         </div>
         <div class="content-Output" id="output">
+            <p>Ausgabe:</p>
             <input type="hidden" id="jokeInput" name="jokeOutput">
             <div id="jokeOutput" name="jokeOutput">Witz</div>
             <div id="textOutput"></div>
