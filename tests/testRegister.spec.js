@@ -17,10 +17,13 @@ test('!checkRegister', async ({ page }) => {
   await page.goto('http://localhost/writing_lucy/register');
   await page.getByRole('heading', { name: 'Registrieren' }).isVisible();
   await page.getByRole('button', { name: 'Registrieren' }).click();
-  await page.getByTestId('error-userName').isVisible();
 
   // Expect a title "to contain" a substring.
-  await expect(page.getByText('Du hast dich erfolgreich angemeldet')).toBeVisible();
+  await expect(page.getByText('Bitte ein Benutzernamen eingeben.')).toBeVisible();
+  await expect(page.getByText('Bitte deine E-Mail eingeben.')).toBeVisible();
+  await expect(page.getByText('Bitte ein Passwort eingeben.')).toBeVisible();
+  await expect(page.getByText('Bitte die Allgemeinen Geschäftsbedingungen annehmen.')).toBeVisible();
+
 
 });
 
