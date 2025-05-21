@@ -6,11 +6,11 @@ window.onload = function () {
     document.getElementById("fontFamily").addEventListener("input", changeFontFamily);
     //document.getElementById("fontDeco").addEventListener("input", changeFontDeco);
     //Text eingabe
-    document.getElementById("text").addEventListener("keyup", innerText);
+    document.getElementById("text").addEventListener("input", innerText);
     //Reset 
     document.getElementById("resetBtn").addEventListener("click", resetPersonalization);
     //Bildbearbeitung
-    document.getElementById("imageLink").addEventListener("keyup", loadImage);
+    document.getElementById("imageLink").addEventListener("input", loadImage);
     document.getElementById("imageWidth").addEventListener("input", changeImageSize);
     document.getElementById("imageHeight").addEventListener("input", changeImageSize);
     //Ausgabe

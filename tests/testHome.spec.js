@@ -47,17 +47,57 @@ test('checkFontFamily', async ({ page }) => {
 test('checkText', async ({ page }) => {
     await page.goto('http://localhost/writing_lucy/home');
 
-    await page.getByLabel('Dein Text:').fill("Test Text");
+    await page.getByRole('textbox', {name: 'Dein Text:'}).fill('Test Text');
 
     await expect(page.getByText('Test Text')).toBeVisible();
 });
 test('checkImage', async ({ page }) => {
     await page.goto('http://localhost/writing_lucy/home');
 
-    await page.getByLabel('Dein Text:').fill("Test Text");
+    await page.getByLabel('Image-URL:').fill("https://evek.top/4432-medium_default/test.jpg");
 
-    await expect(page.getByText('Test Text')).toBeVisible();
+    await expect(page.locator('img')).toHaveCount(1);
 });
+test('checkImageSize', async ({ page }) => {
+    await page.goto('http://localhost/writing_lucy/home');
+    
+    await page.getByLabel('Image-URL:').fill("https://evek.top/4432-medium_default/test.jpg");
+    await page.getByText('Bildbearbeitung').click();
+    await page.getByLabel('Breite des Bildes:').fill('100');
+    await page.getByLabel('Höhe des Bildes:').fill('100');
+    // Check if the image is displayed
+    const img = page.locator('img');
+    await expect(img).toHaveCSS('width', '100px');
+    await expect(img).toHaveCSS('height', '100px');
+});
+test('checkReset', async ({ page }) => {
+    await page.goto('http://localhost/writing_lucy/home');
+    
+    await page.getByRole('textbox', {name: 'Dein Text:'}).fill('Test Text');
+
+    await page.getByText('Textbearbeitung').click();
+
+    await page.getByRole('textbox', { name: 'Hintergrundfarbe:' }).fill('#00ff00');
+    await page.getByRole('textbox', { name: 'Schriftfarbe:' }).fill('#ff0000');
+    await page.getByRole('spinbutton', { name: 'Schriftgrösse:' }).fill('30');
+    await page.getByLabel('Schriftart:').selectOption('Impact');
+
+    await page.getByLabel('Image-URL:').fill("https://evek.top/4432-medium_default/test.jpg");
+
+    await page.getByText('Bildbearbeitung').click();
+
+    await page.getByLabel('Breite des Bildes:').fill('100');
+    await page.getByLabel('Höhe des Bildes:').fill('100');
+
+    // Reset the personalization
+    await page.getByRole('button', { name: 'Reset' }).click();
+
+    // Check if the default values are set
+    const output = page.locator('#output');
+    await expect(output).toHaveCSS('background-color', 'rgb(13, 11, 78)');
+    await expect(output).toHaveCSS('color', 'rgb(255, 255, 255)');
+});
+
 
 
 
