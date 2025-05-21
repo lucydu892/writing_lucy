@@ -2,7 +2,9 @@
   "name": "writing_lucy",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "coverage:report": "nyc report --reporter=html"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lucydu892/writing_lucy.git"
@@ -17,6 +19,7 @@
   "description": "",
   "devDependencies": {
     "@playwright/test": "^1.52.0",
-    "@types/node": "^22.15.18"
+    "@types/node": "^22.15.18",
+    "vite-plugin-istanbul": "^7.0.0"
   }
 }

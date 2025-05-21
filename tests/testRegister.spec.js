@@ -24,7 +24,6 @@ test('!checkRegister', async ({ page }) => {
   await expect(page.getByText('Bitte ein Passwort eingeben.')).toBeVisible();
   await expect(page.getByText('Bitte die Allgemeinen Geschäftsbedingungen annehmen.')).toBeVisible();
 
-
 });
 test('checkRegisterWithExistingUser', async ({ page }) => {
   await page.goto('http://localhost/writing_lucy/register');
