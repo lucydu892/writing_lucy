@@ -1,15 +1,21 @@
 :root {
     --primary-background-color:rgb(12, 12, 58);
     --primary-text-color: rgb(255, 255, 255);
+
     --input-field-background-color: rgb(162, 162, 175);
+
     --dropdown-background-color: rgba(22, 153, 118, 0.342);
     --dropdown-text-color: rgb(29, 205, 159);
     --dropdown-hover-affect: rgb(221, 221, 221);
+
     --output-background-color: rgba(17, 0, 255, 0.1);
+
     --colors-black: rgb(0, 0, 0);
+
     --header-color: rgb(255, 255, 255);
     --footer-color: rgb(0, 0, 0);
     --footer-background-color: rgb(255, 255, 255);
+    
     --button-background-color: rgb(33, 33, 231);
     --button-text-color: rgb(255, 255, 255);
 }

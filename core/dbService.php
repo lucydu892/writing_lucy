@@ -63,6 +63,7 @@ class DbService
         if ($user !== false && password_verify($loggedInUser->getPassword(), $user['password'])) {
             $_SESSION['userId'] = $user['id'];
             $_SESSION['userName'] = $user['userName'];
+            $_SESSION['email'] = $user['email'];
             return true;
         } else {
             return false;

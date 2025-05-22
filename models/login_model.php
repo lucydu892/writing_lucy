@@ -8,6 +8,7 @@ $errors = [];
 $loggedInUser = new LoggedInUser(
     $_POST['userName'] ?? '',
     $_POST['password'] ?? '',
+    $_POST['email'] ?? ''
 );
 
 $validateLogin = new ValidateLogin();
