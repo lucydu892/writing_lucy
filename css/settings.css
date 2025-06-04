@@ -5,14 +5,14 @@
     flex-direction: row;
 }
 .container {
-    padding: 10px;
+    margin: 10px;
+    background-color: blue;
 }
 .card{
-    padding: 30px;
     background-color: rgb(255, 0, 0);
 }
-.card-body{
-    background-color: rgba(22, 153, 118);
+.card-profile{
+    background-color: rgb(22, 153, 118);
 }
 img {
     max-width: 100px;

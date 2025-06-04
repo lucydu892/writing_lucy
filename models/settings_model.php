@@ -6,7 +6,7 @@ $dbCon = $dbService->connectToDatabase();
 
 if(isset($_SESSION['userId'])) {
 
-    $dbService->showUserInfo();
+    $User = $dbService->showUserInfo();
 }else {
     echo "You are not loged in.";
     echo " <script type='text/javascript'>"; 

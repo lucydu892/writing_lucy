@@ -1,33 +1,36 @@
+<?php
+require 'models/settings_model.php';
+$userLogedIn = isset($_SESSION['userId']);
+?>
 <main class="settings-main">
 	<?php
 	if (strpos($_SERVER['REQUEST_URI'], 'settings') !== false): ?>
 		<link rel="stylesheet" href="css/settings.css">
-	<?php endif; ?>
+	<?php endif; 
+		$passwordUnhashed = password_verify('password', $User['password']);
+	?>
 
-	
 	<div class="container">
-		<div class="card">
+		<div class="row">
 			<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
 				<div class="card h-100">
-					<div class="card-body">
+					<div class="card-profile">
 						<div class="account-settings">
 							<div class="user-profile">
 								<div class="user-avatar">
-									<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Maxwell Admin">
+									<img src="images\profileImgDefault.jpeg" alt="Default Picture">
 								</div>
-								<h5 class="user-name">Yuki Hayashi</h5>
-								<h6 class="user-email">yuki@Maxwell.com</h6>
+								<h5 class="user-name"><?= $_SESSION['userName'] ?></h5>
+								<h6 class="user-email"><?= $_SESSION['email'] ?></h6>
 							</div>
 							<div class="about">
-								<h5 class="mb-2 text-primary">About</h5>
-								<p>I'm Yuki. Full Stack Designer I enjoy creating user-centric, delightful and human experiences.</p>
+								<h5>About</h5>
+								<p>Welcome to your profile settings page. Here you can update your personal details and address.</p>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
-
 			<div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
 				<div class="card h-100">
 					<div class="card-body">
@@ -37,55 +40,38 @@
 							</div>
 							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 								<div class="form-group">
-									<label for="fullName">Full Name</label>
-									<input type="text" class="form-control" id="fullName" placeholder="Enter full name">
+									<label for="fullName">Vorname</label>
+									<input type="text" class="form-control" id="fullName" placeholder="<?= $User['firstName'] ?>">
+								</div>
+							</div>
+							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="form-group">
+									<label for="fullName">Nachname</label>
+									<input type="text" class="form-control" id="fullName" placeholder="<?= $User['lastName'] ?>">
 								</div>
 							</div>
 							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 								<div class="form-group">
 									<label for="eMail">Email</label>
-									<input type="email" class="form-control" id="eMail" placeholder="Enter email ID">
+									<input type="email" class="form-control" id="eMail" placeholder="<?= $User['email'] ?>">
 								</div>
 							</div>
 							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 								<div class="form-group">
-									<label for="phone">Phone</label>
-									<input type="text" class="form-control" id="phone" placeholder="Enter phone number">
+									<label for="phone">Handy</label>
+									<input type="text" class="form-control" id="phone" placeholder="076 000 00 00">
 								</div>
 							</div>
 							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 								<div class="form-group">
-									<label for="website">Website URL</label>
-									<input type="url" class="form-control" id="website" placeholder="Website url">
-								</div>
-							</div>
-						</div>
-						<div class="row gutters">
-							<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-								<h6 class="mb-3 text-primary">Address</h6>
-							</div>
-							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-								<div class="form-group">
-									<label for="Street">Street</label>
-									<input type="name" class="form-control" id="Street" placeholder="Enter Street">
+									<label for="website">Passwort</label>
+									<input type="password" class="form-control" id="password" placeholder="">
 								</div>
 							</div>
 							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 								<div class="form-group">
-									<label for="ciTy">City</label>
-									<input type="name" class="form-control" id="ciTy" placeholder="Enter City">
-								</div>
-							</div>
-							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-								<div class="form-group">
-									<label for="sTate">State</label>
-									<input type="text" class="form-control" id="sTate" placeholder="Enter State">
-								</div>
-							</div>
-							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-								<div class="form-group">
-									<label for="zIp">Zip Code</label>
-									<input type="text" class="form-control" id="zIp" placeholder="Zip Code">
+									<label for="website">Webseite URL</label>
+									<input type="url" class="form-control" id="website" placeholder="funnywebsite.com">
 								</div>
 							</div>
 						</div>
