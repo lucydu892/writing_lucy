@@ -50,7 +50,7 @@ class DbService {
     //Login
     public function checkLogin($loggedInUser) {
         $prep = $this->pdo->prepare("SELECT * FROM user WHERE userName = :userName");
-        $prep->bindValue(':userName', $loggedInUser->getUserName(),);
+        $prep->bindValue(':userName', $loggedInUser->getUserName());
         $prep->execute();
         $user = $prep->fetch();
         if ($user !== false && password_verify($loggedInUser->getPassword(), $user['password'])) {
@@ -99,5 +99,13 @@ class DbService {
         $prepPost->execute([':userName' => $_SESSION['userName']]);
         $post = $prepPost->fetchAll();
         return $post;
+    }
+    //Settings
+    public function showUserInfo() {
+        $prep = $this->pdo-> prepare("select * from user where userName= :userName");
+        $prep->execute(['userName' => $_SESSION['userName']]);
+        $user = $prep->fetch();
+        
+        return $user;
     }
 }

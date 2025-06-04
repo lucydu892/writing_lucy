@@ -5,10 +5,9 @@ $dbService = new DbService();
 $dbCon = $dbService->connectToDatabase();
 
 if(isset($_SESSION['userId'])) {
-    
-    $Post = $dbService->prepPost();
 
-} else {
+    $dbService->showUserInfo();
+}else {
     echo "You are not loged in.";
     echo " <script type='text/javascript'>"; 
             echo "alert('User not logged in!')"; 
