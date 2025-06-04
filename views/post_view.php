@@ -9,7 +9,7 @@ $userLogedIn = isset($_SESSION['userId']);
     <?php endif; ?>
     <h1>Willkommen <?= $_SESSION['userName']; ?></h1>
     <div class="cards">
-        <?php foreach ($post as $index => $postOnDb): ?>
+        <?php foreach ($Post as $index => $postOnDb): ?>
             <?php
             $date = date('d.m.Y', strtotime($postOnDb["time"]));
             $fileName = "Beitrag_" . $date;
