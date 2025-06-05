@@ -22,10 +22,7 @@ class DbService {
 
         $password_hash = password_hash($registerUser->getPassword(), PASSWORD_DEFAULT);
 
-        $prep = $this->pdo->prepare(
-            "INSERT INTO `user` (userName, email, password) 
-                VALUES(:userName, :email, :password)"
-        );
+        $prep = $this->pdo->prepare("INSERT INTO `user` (userName, email, password) VALUES(:userName, :email, :password)");
         $result = $prep->execute([
             ':userName' => $registerUser->getUserName(),
             ':email' => $registerUser->getEmail(),
@@ -107,5 +104,27 @@ class DbService {
         $user = $prep->fetch();
         
         return $user;
+    }
+    public function updateUserInfo($User) {
+        $prep = $this->pdo->prepare("UPDATE user SET 
+            firstName = :firstName, 
+            lastName = :lastName, 
+            email = :email, 
+            phone = :phone,
+            website = :website
+            WHERE userName = :userName");
+        $prep->bindParam(':firstName', $User['firstName']);
+        $prep->bindParam(':lastName', $User['lastName']);
+        $prep->bindParam(':email', $User['email']);
+        $prep->bindParam(':phone', $User['phone']);
+        $prep->bindParam(':website', $User['website']);
+        $prep->bindParam(':userName', $_SESSION['userName']);
+        $result = $prep->execute();
+        if ($result) {
+            echo "Deine Daten wurden erfolgreich aktualisiert.";
+        } else {
+            $errorInfo = $prep->errorInfo();
+            echo "Fehler beim Aktualisieren: " . $errorInfo[2];
+        }
     }
 }

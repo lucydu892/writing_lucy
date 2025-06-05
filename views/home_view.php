@@ -4,8 +4,8 @@ require "models/home_model.php";
 ?>
 <main class="home-main">
     <?php if (strpos($_SERVER['REQUEST_URI'], 'home') !== false): ?>
-    <link rel="stylesheet" href="css/home.css">
-  <?php endif; ?>
+        <link rel="stylesheet" href="css/home.css">
+    <?php endif; ?>
     <header>
         <h1>Writing Lucy</h1>
     </header>
@@ -68,12 +68,12 @@ require "models/home_model.php";
             <div>
                 <label for="imageLink">Image-URl:</label>
                 <br>
-                <input type="text" name="imageLink" id="imageLink"> 
+                <input type="text" name="imageLink" id="imageLink">
                 <br>
                 <label for="imageLocal">Bild hochladen:</label>
                 <br>
                 <input id="imageLocal" name="imageLocal" type="file" accept="image/png, image/gif, image/jpeg">
-                
+
             </div>
             <br>
             <div class="dropdown">
