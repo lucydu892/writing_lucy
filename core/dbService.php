@@ -106,7 +106,7 @@ class DbService {
         return $user;
     }
     public function updateUserInfo($User) {
-        $firstName = $User->getFirstname();
+        $firstName = $User->getFirstName();
         $lastName = $User->getLastname();
         $email = $User->getEmail();
         $phone = $User->getPhone();
