@@ -11,7 +11,6 @@ $userLogedIn = isset($_SESSION['userId']);
 		<h1>Profile Settings</h1>
 	</header>
 	<form method="post" novalidate>
-
 		<div class="container">
 			<div class="row">
 				<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
@@ -43,31 +42,31 @@ $userLogedIn = isset($_SESSION['userId']);
 								<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 									<div class="form-group">
 										<label for="firstName">Vorname</label>
-										<input type="text" class="form-control" name="firstName" placeholder="<?= $User->getFirstName() ?>" value="<?= $User->getFirstName() ?>">
+										<input type="text" class="form-control" id="firstName" name="firstName" placeholder="<?= $UserInfo['firstName'] ?? '' ?>" value="<?= $UserInfo['firstName'] ?? '' ?>">
 									</div>
 								</div>
 								<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 									<div class="form-group">
 										<label for="lastName">Nachname</label>
-										<input type="text" class="form-control" name="lastName" placeholder="<?= $User->getLastName() ?>" value="<?= $User->getLastName() ?>">
+										<input type="text" class="form-control" id="lastName" name="lastName" placeholder="<?= $UserInfo['lastName'] ?? '' ?>" value="<?= $UserInfo['lastName'] ?? '' ?>">
 									</div>
 								</div>
 								<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 									<div class="form-group">
 										<label for="email">Email</label>
-										<input type="email" class="form-control" name="email" placeholder="<?= $User->getEmail() ?>" value="<?= $User->getEmail() ?>">
+										<input type="email" class="form-control" id="email" name="email" placeholder="<?= $UserInfo['email'] ?? '' ?>" value="<?= $UserInfo['email'] ?? '' ?>">
 									</div>
 								</div>
 								<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 									<div class="form-group">
 										<label for="phone">Handy</label>
-										<input type="text" class="form-control" name="phone" placeholder="076 000 00 00" value="<?= $User->getPhone() ?>">
+										<input type="text" class="form-control" id="phone" name="phone" placeholder="<?= $UserInfo['phone'] ?? '' ?>" value="<?= $UserInfo['phone'] ?? '' ?>">
 									</div>
 								</div>
 								<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 									<div class="form-group">
 										<label for="website">Webseite URL</label>
-										<input type="url" class="form-control" name="website" placeholder="funnywebsite.com" value="<?= $User->getWebsite() ?>">
+										<input type="url" class="form-control" id="website" name="website" placeholder="<?= $UserInfo['website'] ?? '' ?>" value="<?= $UserInfo['website'] ?? '' ?>">
 									</div>
 								</div>
 							</div>
@@ -78,23 +77,16 @@ $userLogedIn = isset($_SESSION['userId']);
 									</div>
 								</div>
 							</div>
-							<div class="password-section">
-								<h6 class="mb-3 text-primary">Change Password</h6>
-								<div class="row gutters">
-									<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-										<div class="form-group">
-											<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-												<div class="form-group">
-													<label for="password">Passwort</label>
-													<input type="password" class="form-control" name="password" placeholder="">
-												</div>
-											</div>
-										</div>
-									</div>
+							<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+								<div class="form-group">
+									<label for="password">Passwort</label>
+									<input type="password" class="form-control" id="password" name="password" placeholder="">
 								</div>
 							</div>
 						</div>
 					</div>
+				</div>
+			</div>
+		</div>
 	</form>
 </main>
-<script src="js/settings.js"></script>

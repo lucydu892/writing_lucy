@@ -8,12 +8,11 @@
         private $website;
         private $gender;
 
-        public function __construct($firstName, $lastName, $email, $phone, $password, $website) {
+        public function __construct($firstName, $lastName, $email, $phone, $website) {
             $this->firstName = $firstName;
             $this->lastName = $lastName;
             $this->email = $email;
             $this->phone = $phone;
-            $this->password = $password;
             $this->website = $website;
         }
         public function getFirstName() {

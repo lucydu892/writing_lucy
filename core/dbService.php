@@ -129,8 +129,7 @@ class DbService {
         if ($result) {
             echo "Deine Daten wurden erfolgreich aktualisiert.";
         } else {
-            $errorInfo = $prep->errorInfo();
-            echo "Fehler beim Aktualisieren: " . $errorInfo[2];
+            echo "Fehler beim Aktualisieren: ";
         }
     }
 }

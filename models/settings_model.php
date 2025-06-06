@@ -5,20 +5,21 @@ require 'models/user_model.php';
 
 if (isset($_SESSION['userId'])) {
     $User = new User(
-        $_POST['firstName'],
-        $_POST['lastName'],
-        $_POST['email'],
-        $_POST['phone'],
-        $_POST['website'],
-        $_SESSION['userName']
+        $_POST['firstName'] ?? '',
+        $_POST['lastName'] ?? '',
+        $_POST['email'] ?? '',
+        $_POST['phone'] ?? '',
+        $_POST['website'] ?? '',
+        
     );
     $dbService = new DbService();
     $dbCon = $dbService->connectToDatabase();
-    $dbService->showUserInfo();
+    $UserInfo = $dbService->showUserInfo();
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
         $dbService->updateUserInfo($User);
+        $UserInfo = $dbService->showUserInfo();
     }
 } else {
     echo "You are not loged in.";
