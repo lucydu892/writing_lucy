@@ -4,7 +4,7 @@ require 'models/user_model.php';
 
 
 if (isset($_SESSION['userId'])) {
-    $User = new User(
+$User = new User(
     $_POST['firstName'],
     $_POST['lastName'] ?? '',
     $_POST['email'] ?? '',
@@ -12,8 +12,8 @@ if (isset($_SESSION['userId'])) {
     $_POST['website'] ?? '',
     $_SESSION['userName']
 );
-    $dbService = new DbService();
-    $dbCon = $dbService->connectToDatabase();
+$dbService = new DbService();
+$dbCon = $dbService->connectToDatabase();
     $User = $dbService->showUserInfo();
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -21,9 +21,9 @@ if (isset($_SESSION['userId'])) {
     }
 } else {
     echo "You are not loged in.";
-    echo " <script type='text/javascript'>";
-    echo "alert('User not logged in!')";
-    echo " </script>";
+    echo " <script type='text/javascript'>"; 
+            echo "alert('User not logged in!')"; 
+            echo " </script>";  
 
     header("refresh:0;url=register");
-}
+ }

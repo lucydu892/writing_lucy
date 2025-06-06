@@ -106,6 +106,12 @@ class DbService {
         return $user;
     }
     public function updateUserInfo($User) {
+        $firstName = $User->getFirstname();
+        $lastName = $User->getLastname();
+        $email = $User->getEmail();
+        $phone = $User->getPhone();
+        $website = $User->getWebsite();
+
         $prep = $this->pdo->prepare("UPDATE user SET 
             firstName = :firstName, 
             lastName = :lastName, 
@@ -113,11 +119,11 @@ class DbService {
             phone = :phone,
             website = :website
             WHERE userName = :userName");
-        $prep->bindParam(':firstName', $User['firstName']);
-        $prep->bindParam(':lastName', $User['lastName']);
-        $prep->bindParam(':email', $User['email']);
-        $prep->bindParam(':phone', $User['phone']);
-        $prep->bindParam(':website', $User['website']);
+        $prep->bindParam(':firstName', $firstName);
+        $prep->bindParam(':lastName', $lastName);
+        $prep->bindParam(':email', $email);
+        $prep->bindParam(':phone', $phone);
+        $prep->bindParam(':website', $website);
         $prep->bindParam(':userName', $_SESSION['userName']);
         $result = $prep->execute();
         if ($result) {
