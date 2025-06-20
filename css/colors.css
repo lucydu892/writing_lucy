@@ -1,9 +1,11 @@
 :root {
+    /* Primary Colors */
     --primary-background-color:rgb(12, 12, 58);
     --primary-text-color: rgb(255, 255, 255);
+    --sub-primary-color: rgba(22, 153, 118, 0.434);
 
     --input-field-background-color: rgb(162, 162, 175);
-
+    /* Dropdown */
     --dropdown-background-color: rgba(22, 153, 118, 0.342);
     --dropdown-text-color: rgb(29, 205, 159);
     --dropdown-hover-affect: rgb(221, 221, 221);

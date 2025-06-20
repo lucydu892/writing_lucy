@@ -24,7 +24,7 @@ main {
 .container::before {
     pointer-events: none;
     content: '';
-    border: 2px solid #FFFFFF;
+    border: 2px solid rgb(255, 255, 255);
     display: block;
     width: 100%;
     height: 100%;
