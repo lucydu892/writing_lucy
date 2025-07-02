@@ -24,8 +24,8 @@
         ?>
     </header>
     <main>
-    <?php
-            require "routes.php";
+        <?php
+        require "routes.php";
         ?>
     </main>
     <footer>
